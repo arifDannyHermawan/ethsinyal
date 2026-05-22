@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>ETH Signal</title>
+  <meta name="description" content="Automated ETH/USDT 1H trading signal — EMA + RSI + MACD"/>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta name="theme-color" content="#0a0e1a"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="ETH Signal"/>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    html,body{background:linear-gradient(160deg,#0d1628 0%,#0a0e1a 40%,#0c1220 100%);background-attachment:fixed;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;font-size:13px;-webkit-font-smoothing:antialiased}
+    .mono{font-family:'SF Mono','Fira Code',SFMono-Regular,Consolas,'Liberation Mono',monospace}
+    body{padding-bottom:env(safe-area-inset-bottom,16px)}
+
+    @keyframes pulse-buy {0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}50%{box-shadow:0 0 0 20px rgba(0,255,136,0)}}
+    @keyframes pulse-sell{0%,100%{box-shadow:0 0 0 0 rgba(255,51,102,.5)}50%{box-shadow:0 0 0 20px rgba(255,51,102,0)}}
+    @keyframes pulse-wait{0%,100%{box-shadow:0 0 0 0 rgba(255,170,0,.5)} 50%{box-shadow:0 0 0 20px rgba(255,170,0,0)}}
+    @keyframes spin   {to{transform:rotate(360deg)}}
+    @keyframes fadein {from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes glow   {0%,100%{opacity:.5}50%{opacity:1}}
+
+    /* Applied via className — FIX for the className bug */
+    .fadein{animation:fadein .4s ease both}
+    .glow  {animation:glow 2s infinite}
+    .spin  {animation:spin 1s linear infinite}
+
+    button:focus-visible,a:focus-visible{outline:2px solid #00e5ff;outline-offset:2px;}
+    button{cursor:pointer;}
+    #toast{
+      position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+      background:#1e2a45;border:1px solid #00e5ff55;color:#c8d8f0;
+      padding:10px 18px;border-radius:12px;font-size:11px;
+      display:none;z-index:999;text-align:center;max-width:290px;
+      cursor:pointer;font-family:inherit
+    }
+  </style>
+</head>
+<body>
+<div id="app" style="max-width:480px;margin:0 auto;padding:10px 10px 28px"></div>
+<div id="toast"></div>
+<script>
+"use strict";
+
+// ═══════════════════════════════════════════════════════════
+// THEME COLORS
+// ═══════════════════════════════════════════════════════════
+var MONO     = "'SF Mono','Fira Code',SFMono-Regular,Consolas,monospace";
+var MONO_SVG = "SF Mono,Fira Code,SFMono-Regular,Consolas,monospace";
+var C = {
+  bg:"#0a0e1a", bgDeep:"#0c1220", bgBuy:"#001f12", bgSell:"#200008", bgWait:"#201800",
+  panel:"#0f1525", border:"#1e2a45",
+  accent:"#00e5ff", buy:"#00ff88", sell:"#ff3366",
+  wait:"#ffaa00", text:"#c8d8f0", muted:"#7090b8"
+};
+
+var LIMIT = 300; // 300 h1 candles needed for EMA200
+
+// ═══════════════════════════════════════════════════════════
+// DOM HELPERS
+// ═══════════════════════════════════════════════════════════
+function el(tag, opts, children) {
+  var d = document.createElement(tag);
+  opts = opts || {};
+  // FIX: handle className separately from CSS style properties
+  if (opts.className) { d.className = opts.className; }
+  var styleObj = {};
+  Object.keys(opts).forEach(function(k) {
+    if (k === "className") return;
+    styleObj[k] = opts[k];
+  });
+  Object.assign(d.style, styleObj);
+  (children || []).forEach(function(c) {
+    if (c == null) return;
+    d.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  });
+  return d;
+}
+function div(opts, children) { return el("div", opts, children); }
+function span(opts, text) { return el("span", opts, [text]); }
+
+function svgNS(tag, attrs) {
+  var e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  Object.keys(attrs).forEach(function(k) { e.setAttribute(k, attrs[k]); });
+  return e;
+}
+function svgRoot(attrs, children) {
+  var s = svgNS("svg", attrs);
+  (children || []).forEach(function(c) { if (c) s.appendChild(c); });
+  return s;
+}
+
+// ═══════════════════════════════════════════════════════════
+// XHR — compatible with all browsers (no AbortSignal.timeout)
+// ═══════════════════════════════════════════════════════════
+function xhrGet(url, timeoutMs) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    var settled = false;
+    var timer = setTimeout(function() {
+      if (!settled) { settled = true; xhr.abort(); reject(new Error("timeout")); }
+    }, timeoutMs || 10000);
+
+    xhr.onload = function() {
+      if (settled) return; settled = true; clearTimeout(timer);
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try { resolve(JSON.parse(xhr.responseText)); }
+        catch(e) { reject(new Error("bad JSON")); }
+      } else {
+        reject(new Error("HTTP " + xhr.status));
+      }
+    };
+    xhr.onerror  = function() { if (!settled) { settled=true; clearTimeout(timer); reject(new Error("network error")); }};
+    xhr.onabort  = function() { if (!settled) { settled=true; clearTimeout(timer); reject(new Error("aborted")); }};
+    xhr.open("GET", url, true);
+    xhr.send();
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// DATA SOURCES
+// ═══════════════════════════════════════════════════════════
+var SOURCES = [
+  // ── 1. CryptoCompare — proper 1H OHLC, not an exchange ──
+  {
+    name: "CryptoCompare",
+    fetch: function() {
+      return xhrGet("https://min-api.cryptocompare.com/data/v2/histohour?fsym=ETH&tsym=USD&limit=" + LIMIT)
+        .then(function(d) {
+          if (!d.Data || !d.Data.Data) throw new Error("bad structure");
+          return d.Data.Data.map(function(k) {
+            return { t:new Date(+k.time*1000), o:+k.open, h:+k.high, l:+k.low, c:+k.close, v:+k.volumeto };
+          });
+        });
+    }
+  },
+  // ── 2. CoinGecko — hourly prices, not an exchange ────────
+  {
+    name: "CoinGecko",
+    fetch: function() {
+      // market_chart with hourly interval gives ~300+ price points
+      var days = Math.ceil(LIMIT / 24) + 1;
+      return xhrGet("https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=" + days + "&interval=hourly")
+        .then(function(d) {
+          if (!d.prices || !d.prices.length) throw new Error("no prices");
+          var prices  = d.prices;
+          var volumes = d.total_volumes || [];
+          // Build pseudo-candles from consecutive hourly price points
+          var candles = [];
+          for (var i = 1; i < prices.length; i++) {
+            var prev = prices[i-1], curr = prices[i];
+            candles.push({
+              t: new Date(+curr[0]),
+              o: +prev[1],
+              h: Math.max(+prev[1], +curr[1]),
+              l: Math.min(+prev[1], +curr[1]),
+              c: +curr[1],
+              v: volumes[i] ? +volumes[i][1] : 0
+            });
+          }
+          return candles.slice(-LIMIT);
+        });
+    }
+  },
+  // ── 3. Binance (exchange — may be blocked) ───────────────
+  {
+    name: "Binance",
+    fetch: function() {
+      return xhrGet("https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1h&limit=" + LIMIT)
+        .then(function(d) {
+          return d.map(function(k) {
+            return { t:new Date(+k[0]), o:+k[1], h:+k[2], l:+k[3], c:+k[4], v:+k[5] };
+          });
+        });
+    }
+  },
+  // ── 4. Kraken (exchange — may be blocked) ────────────────
+  {
+    name: "Kraken",
+    fetch: function() {
+      return xhrGet("https://api.kraken.com/0/public/OHLC?pair=ETHUSD&interval=60")
+        .then(function(d) {
+          var rows = null;
+          var res = d.result || {};
+          Object.keys(res).forEach(function(k) { if (Array.isArray(res[k])) rows = res[k]; });
+          if (!rows || !rows.length) throw new Error("no rows");
+          return rows.slice(-LIMIT).map(function(k) {
+            return { t:new Date(+k[0]*1000), o:+k[1], h:+k[2], l:+k[3], c:+k[4], v:+k[6] };
+          });
+        });
+    }
+  },
+  // ── 5. Coinbase (exchange — may be blocked) ──────────────
+  {
+    name: "Coinbase",
+    fetch: function() {
+      var end   = Math.floor(Date.now() / 1000);
+      var start = end - LIMIT * 3600;
+      return xhrGet("https://api.exchange.coinbase.com/products/ETH-USD/candles?granularity=3600&start=" + start + "&end=" + end)
+        .then(function(d) {
+          return d.slice().reverse().map(function(k) {
+            return { t:new Date(+k[0]*1000), o:+k[3], h:+k[2], l:+k[1], c:+k[4], v:+k[5] };
+          });
+        });
+    }
+  },
+  // ── 6. AllOrigins CORS proxy → Binance (last resort) ─────
+  {
+    name: "Proxy→Binance",
+    fetch: function() {
+      var target = encodeURIComponent("https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1h&limit=" + LIMIT);
+      return xhrGet("https://api.allorigins.win/raw?url=" + target)
+        .then(function(d) {
+          return d.map(function(k) {
+            return { t:new Date(+k[0]), o:+k[1], h:+k[2], l:+k[3], c:+k[4], v:+k[5] };
+          });
+        });
+    }
+  }
+];
+
+function fetchCandles() {
+  var errors = [];
+  function tryIdx(i) {
+    if (i >= SOURCES.length) return Promise.reject(new Error("All sources failed: " + errors.join(" | ")));
+    var src = SOURCES[i];
+    return src.fetch()
+      .then(function(candles) {
+        if (!candles || candles.length < 50) throw new Error("data tidak cukup (" + (candles ? candles.length : 0) + ")");
+        console.info("[ETH] OK:", src.name, candles.length, "candles");
+        return { candles: candles, source: src.name };
+      })
+      .catch(function(e) {
+        console.warn("[ETH]", src.name, "failed:", e.message);
+        errors.push(src.name + ": " + e.message);
+        return tryIdx(i + 1);
+      });
+  }
+  return tryIdx(0);
+}
+
+// ═══════════════════════════════════════════════════════════
+// INDICATOR CALCULATIONS
+// ═══════════════════════════════════════════════════════════
+
+// EMA — result[i] aligns with arr[period-1+i]
+function calcEMA(arr, period) {
+  if (arr.length < period) return [];
+  var k = 2 / (period + 1);
+  var sum = 0;
+  for (var i = 0; i < period; i++) sum += arr[i];
+  var ema = sum / period;
+  var out = [ema];
+  for (var j = period; j < arr.length; j++) {
+    ema = arr[j] * k + ema * (1 - k);
+    out.push(ema);
+  }
+  return out;
+}
+
+// RSI with Wilder smoothing — optimal period for H1 = 14
+function calcRSI(closes, period) {
+  period = period || 14;
+  if (closes.length < period + 1) return [];
+  var gains = [], losses = [];
+  for (var i = 1; i < closes.length; i++) {
+    var d = closes[i] - closes[i - 1];
+    gains.push(d > 0 ? d : 0);
+    losses.push(d < 0 ? -d : 0);
+  }
+  var ag = 0, al = 0;
+  for (var j = 0; j < period; j++) { ag += gains[j]; al += losses[j]; }
+  ag /= period; al /= period;
+  var rsis = [];
+  for (var k = period; k < gains.length; k++) {
+    ag = (ag * (period - 1) + gains[k]) / period;
+    al = (al * (period - 1) + losses[k]) / period;
+    rsis.push(al === 0 ? 100 : 100 - 100 / (1 + ag / al));
+  }
+  return rsis;
+}
+
+// MACD (12, 26, 9) — standard optimal for all timeframes
+function calcMACD(closes) {
+  var ema12 = calcEMA(closes, 12); // starts at closes[11]
+  var ema26 = calcEMA(closes, 26); // starts at closes[25]
+  // Align: ema12[i+14] and ema26[i] both represent closes[25+i]
+  var macdLine = [];
+  for (var i = 0; i < ema26.length; i++) macdLine.push(ema12[i + 14] - ema26[i]);
+  var signalLine = calcEMA(macdLine, 9);
+  // histogram[j] = macdLine[j+8] - signalLine[j]
+  var histogram = [];
+  for (var j = 0; j < signalLine.length; j++) histogram.push(macdLine[j + 8] - signalLine[j]);
+  return { macdLine: macdLine, signalLine: signalLine, histogram: histogram };
+}
+
+function last(arr) { return (arr && arr.length > 0) ? arr[arr.length - 1] : null; }
+function prev(arr) { return (arr && arr.length > 1) ? arr[arr.length - 2] : null; }
+
+// ── Signal Generation ─────────────────────────────────────
+function calcSignal(candles) {
+  var closes = candles.map(function(c) { return c.c; });
+  var price = last(closes);
+
+  var ema20arr  = calcEMA(closes, 20);
+  var ema50arr  = calcEMA(closes, 50);
+  var ema200arr = calcEMA(closes, 200);
+  var ema20   = last(ema20arr);
+  var ema50   = last(ema50arr);
+  var ema200  = last(ema200arr);
+
+  var rsiArr = calcRSI(closes, 14);
+  var rsi    = last(rsiArr);
+
+  var macdData  = calcMACD(closes);
+  var macdVal   = last(macdData.macdLine);
+  var sigVal    = last(macdData.signalLine);
+  var histVal   = last(macdData.histogram);
+  var prevHist  = prev(macdData.histogram);
+
+  // ── Scoring: 7 conditions ─────────────────────────────
+  var bull = 0, bear = 0;
+
+  // EMA (3 pts)
+  if (price > ema20)  bull++; else bear++;
+  if (price > ema50)  bull++; else bear++;
+  if (price > ema200) bull++; else bear++;
+
+  // RSI (2 pts) — oversold/overbought worth double
+  if      (rsi < 30) bull += 2;
+  else if (rsi > 70) bear += 2;
+  else if (rsi < 50) bull++;
+  else               bear++;
+
+  // MACD line vs signal line (1 pt)
+  if (macdVal > sigVal) bull++; else bear++;
+
+  // Histogram momentum: is it growing or shrinking? (1 pt)
+  if (histVal > prevHist) bull++; else bear++;
+
+  var signal = bull >= 5 ? "BUY" : bear >= 5 ? "SELL" : "WAIT";
+
+  // ── Trend direction based on EMA alignment ────────────
+  var trend;
+  if      (ema20 > ema50 && ema50 > ema200) trend = { label:"UPTREND",      icon:"▲▲", color:C.buy,  desc:"EMA20 > EMA50 > EMA200" };
+  else if (ema20 < ema50 && ema50 < ema200) trend = { label:"DOWNTREND",    icon:"▼▼", color:C.sell, desc:"EMA20 < EMA50 < EMA200" };
+  else if (ema20 > ema50 && ema50 < ema200) trend = { label:"RECOVERY",     icon:"▲",  color:C.wait, desc:"EMA20 rising, still below EMA200" };
+  else if (ema20 < ema50 && ema50 > ema200) trend = { label:"DISTRIBUTION", icon:"▼",  color:C.wait, desc:"EMA20 falling, still above EMA200" };
+  else                                       trend = { label:"SIDEWAYS",     icon:"◆",  color:C.muted,desc:"EMA alignment unclear" };
+
+  return {
+    signal: signal, bull: bull, bear: bear, total: 7,
+    price: price,
+    ema20: ema20, ema50: ema50, ema200: ema200,
+    _ema20arr: ema20arr, _ema50arr: ema50arr,
+    rsi: rsi,
+    macd: macdVal, macdSignal: sigVal,
+    histogram: histVal, prevHistogram: prevHist,
+    trend: trend
+  };
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHART — SVG candlestick, last 60 candles
+// ═══════════════════════════════════════════════════════════
+function buildChart(allCandles, preEma20, preEma50) {
+  var data   = allCandles.slice(-60);
+  var closes = allCandles.map(function(c) { return c.c; });
+
+  var W=450, H=185, PL=58, PR=8, PT=10, PB=24;
+  var cW = W-PL-PR, cH = H-PT-PB;
+
+  var highs = data.map(function(c){return c.h;});
+  var lows  = data.map(function(c){return c.l;});
+  var minP  = Math.min.apply(null, lows);
+  var maxP  = Math.max.apply(null, highs);
+  var pR    = maxP - minP || 1;
+  var n     = data.length;
+  var gap   = cW / n;
+  var barW  = Math.max(2, gap - 1.5);
+
+  function toX(i) { return PL + i*gap + gap/2; }
+  function toY(p) { return PT + cH - ((p - minP) / pR) * cH; }
+  function fmt(p) {
+    // Use adaptive precision based on price range
+    if (pR < 20)       return "$"+p.toFixed(1);
+    if (pR < 200)      return "$"+Math.round(p);
+    if (p >= 10000)    return "$"+(p/1000).toFixed(1)+"k";
+    if (p >= 1000)     { var s=Math.round(p).toString(); var r=""; for(var _i=0;_i<s.length;_i++){if(_i>0&&(s.length-_i)%3===0)r+=",";r+=s[_i];} return "$"+r; }
+    return "$"+p.toFixed(0);
+  }
+  function fmtT(d){ return d.getHours().toString().padStart(2,"0")+":"+d.getMinutes().toString().padStart(2,"0"); }
+
+  var maxVol = Math.max.apply(null, data.map(function(c){return c.v;}));
+  var gridPs = [0,1,2,3,4].map(function(i){return minP+(pR/4)*i;});
+  var els    = [];
+
+  // Grid lines + price labels
+  gridPs.forEach(function(p, i) {
+    els.push(svgNS("line",{x1:PL,y1:toY(p),x2:W-PR,y2:toY(p),stroke:C.border,"stroke-width":.5,"stroke-dasharray":"3,4"}));
+    var t = svgNS("text",{x:PL-4,y:toY(p)+3,"text-anchor":"end",fill:C.muted,"font-size":8,"font-family":MONO_SVG});
+    t.textContent = fmt(p);
+    els.push(t);
+  });
+
+  // Use pre-calculated EMAs passed from calcSignal — no duplicate computation
+  // Use pre-calculated EMAs (always passed from render pipeline)
+  var ema20sl = (preEma20 || []).slice(-60);
+  var ema50sl = (preEma50 || []).slice(-60);
+
+  function emaPath(arr, color) {
+    var d = "";
+    arr.forEach(function(v, i) {
+      var x = toX(i), y = toY(v);
+      var inView = y >= PT && y <= PT+cH;
+      if (!inView) {
+        // FIX: don't just skip — move pen so line doesn't draw across gap
+        d += ""; // effectively breaks path segment
+      } else {
+        // FIX: use M if previous point was out of view or this is first point
+        var prevY = i > 0 ? toY(arr[i-1]) : null;
+        var prevInView = prevY !== null && prevY >= PT && prevY <= PT+cH;
+        d += (i === 0 || !prevInView ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+      }
+    });
+    if (!d.trim()) return null;
+    return svgNS("path",{d:d.trim(),fill:"none",stroke:color,"stroke-width":1.2,opacity:.75});
+  }
+
+  var p20 = emaPath(ema20sl, C.accent);
+  var p50 = emaPath(ema50sl, C.wait);
+  if (p20) els.push(p20);
+  if (p50) els.push(p50);
+
+  // Volume bars (behind candles)
+  data.forEach(function(c, i) {
+    var vH = maxVol > 0 ? (c.v / maxVol) * 26 : 0;
+    els.push(svgNS("rect",{
+      x:toX(i)-barW/2, y:PT+cH-vH, width:barW, height:vH,
+      fill: c.c >= c.o ? C.buy+"18" : C.sell+"18"
+    }));
+  });
+
+  // Candlesticks
+  data.forEach(function(c, i) {
+    var bull  = c.c >= c.o;
+    var color = bull ? C.buy : C.sell;
+    var bTop  = toY(Math.max(c.o, c.c));
+    var bBot  = toY(Math.min(c.o, c.c));
+    var bH    = Math.max(1, bBot - bTop);
+    var cx    = toX(i);
+    var g     = document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.appendChild(svgNS("line",{x1:cx,y1:toY(c.h),x2:cx,y2:toY(c.l),stroke:color,"stroke-width":1,opacity:.85}));
+    g.appendChild(svgNS("rect",{
+      x:cx-barW/2, y:bTop, width:barW, height:bH,
+      fill: bull ? color : "transparent",
+      stroke: color, "stroke-width": bull ? 0 : 1, opacity:.9
+    }));
+    els.push(g);
+  });
+
+  // Latest price dashed line
+  var latest   = data[data.length-1];
+  var prev2    = data[data.length-2];
+  var chColor  = latest.c >= prev2.c ? C.buy : C.sell;
+  els.push(svgNS("line",{x1:PL,y1:toY(latest.c),x2:W-PR,y2:toY(latest.c),stroke:chColor,"stroke-width":.8,"stroke-dasharray":"4,3",opacity:.6}));
+
+  // Time labels
+  [0, 15, 30, 45, 59].forEach(function(i) {
+    if (i >= data.length) return;
+    var t = svgNS("text",{x:toX(i),y:H-5,"text-anchor":"middle",fill:C.muted,"font-size":8,"font-family":MONO_SVG});
+    t.textContent = fmtT(data[i].t);
+    els.push(t);
+  });
+
+  // EMA legend
+  [["EMA20",C.accent,PL+2],["EMA50",C.wait,PL+44]].forEach(function(leg) {
+    var t = svgNS("text",{x:leg[2],y:PT+10,fill:leg[1],"font-size":7,"font-family":MONO_SVG});
+    t.textContent = leg[0];
+    els.push(t);
+  });
+
+  var chart = svgRoot({width:"100%",height:H,viewBox:"0 0 "+W+" "+H,style:"display:block;max-width:100%;touch-action:pan-y",preserveAspectRatio:"xMidYMid meet"}, els);
+
+  // Touch: find candle by x position
+  var hoveredCandle = null;
+  function showTooltip(clientX, svgEl) {
+    var rect = svgEl.getBoundingClientRect();
+    var relX = (clientX - rect.left) / rect.width * W;
+    var idx = Math.floor((relX - PL) / gap);
+    if (idx < 0) idx = 0;
+    if (idx >= data.length) idx = data.length - 1;
+    var c = data[idx];
+    if (c === hoveredCandle) return;
+    hoveredCandle = c;
+    // Update tooltip div
+    var tt = document.getElementById("chart-tooltip");
+    if (!tt) return;
+    var bull = c.c >= c.o;
+    var col  = bull ? C.buy : C.sell;
+    // Safe DOM manipulation — no innerHTML with dynamic data
+    while (tt.firstChild) tt.removeChild(tt.firstChild);
+    var timeSpan = document.createElement("span");
+    timeSpan.style.cssText = "color:"+C.muted+";font-size:9px;margin-right:6px";
+    timeSpan.textContent = c.t.getHours().toString().padStart(2,"0")+":"+c.t.getMinutes().toString().padStart(2,"0");
+    tt.appendChild(timeSpan);
+    [["O",fmt(c.o),col],["H",fmt(c.h),C.buy],["L",fmt(c.l),C.sell],["C",fmt(c.c),col]].forEach(function(item){
+      var s = document.createElement("span");
+      s.style.cssText = "color:"+item[2]+";margin-right:4px";
+      s.textContent = item[0]+item[1];
+      tt.appendChild(s);
+    });
+    tt.style.opacity = "1";
+  }
+  function hideTooltip() {
+    hoveredCandle = null;
+    var tt = document.getElementById("chart-tooltip");
+    if (tt) tt.style.opacity = "0";
+  }
+  chart.addEventListener("mousemove",  function(e){ showTooltip(e.clientX, chart); });
+  chart.addEventListener("mouseleave", function()  { hideTooltip(); });
+  chart.addEventListener("touchstart", function(e){ e.preventDefault(); showTooltip(e.touches[0].clientX, chart); }, {passive:false});
+  chart.addEventListener("touchmove",  function(e){ e.preventDefault(); showTooltip(e.touches[0].clientX, chart); }, {passive:false});
+  chart.addEventListener("touchend",   function()  { setTimeout(hideTooltip, 1200); });
+  return chart;
+}
+
+// ═══════════════════════════════════════════════════════════
+// UI COMPONENTS
+// ═══════════════════════════════════════════════════════════
+function fmtPrice(p) {
+  var s = p.toFixed(2);
+  var dec = s.slice(-3);
+  var int = s.slice(0, -3);
+  var out = "";
+  for (var i = 0; i < int.length; i++) {
+    if (i > 0 && (int.length - i) % 3 === 0) out += ",";
+    out += int[i];
+  }
+  return "$" + out + dec;
+}
+function fmtSigned(n, dec) {
+  if (n == null || isNaN(n)) return "—";
+  return (n >= 0 ? "+" : "") + n.toFixed(dec || 2);
+}
+
+function buildLoading() {
+  return div({background:C.panel,border:"1px solid "+C.border,borderRadius:14,padding:"28px 20px",textAlign:"center",marginBottom:12},[
+    div({color:C.accent,fontSize:11,letterSpacing:3,marginBottom:10,className:"glow"},["CALCULATING SIGNAL..."]),
+    div({color:C.muted,fontSize:9,lineHeight:1.8,marginBottom:14},["CryptoCompare → CoinGecko → Binance → Kraken → Proxy"]),
+    div({width:32,height:32,border:"3px solid "+C.border,borderTop:"3px solid "+C.accent,borderRadius:"50%",className:"spin",margin:"0 auto"})
+  ]);
+}
+
+function buildError(msg, onRetry) {
+  var btn = el("button",{background:C.accent+"22",border:"1px solid "+C.accent,color:C.accent,padding:"8px 22px",borderRadius:8,cursor:"pointer",fontSize:11,fontFamily:"inherit",marginTop:12},["↻ Retry"]);
+  btn.setAttribute("aria-label","Retry loading data");
+  btn.onclick = onRetry;
+  return div({background:C.panel,border:"1px solid "+C.sell+"55",borderRadius:14,padding:"20px",textAlign:"center",marginBottom:12},[
+    div({color:C.sell,fontSize:13,marginBottom:8},["⚠ Failed to load data"]),
+    div({color:C.muted,fontSize:9,lineHeight:1.7},[msg || "All sources failed."]),
+    btn
+  ]);
+}
+
+function buildChartCard(candles, source, updated, preEma20, preEma50) {
+  var latest  = candles[candles.length-1];
+  var prev2   = candles[candles.length-2];
+  var change  = ((latest.c - prev2.c) / prev2.c) * 100;
+  var chColor = change >= 0 ? C.buy : C.sell;
+  var isOpen  = false; // default: minimized
+
+  var card = div({background:C.panel,border:"1px solid "+C.border,borderRadius:12,marginBottom:12,className:"fadein",overflow:"hidden",boxShadow:"0 2px 16px rgba(0,0,0,.4)"});
+
+  // ── Compact always-visible header row ─────────────────
+  var hdr = div({
+    display:"flex",justifyContent:"space-between",alignItems:"center",
+    padding:"9px 12px",cursor:"pointer",userSelect:"none",gap:"8px"
+  });
+
+  // Left: symbol + timeframe
+  var leftGrp = div({display:"flex",alignItems:"center",gap:"6px",flexShrink:0});
+  var dot = div({width:6,height:6,borderRadius:"50%",background:C.buy,boxShadow:"0 0 5px "+C.buy,className:"glow",flexShrink:0});
+  leftGrp.appendChild(dot);
+  leftGrp.appendChild(span({fontSize:12,fontWeight:700,color:"#fff",letterSpacing:.5},"ETH/USDT"));
+  leftGrp.appendChild(span({fontSize:8,color:C.accent,border:"1px solid "+C.accent+"55",borderRadius:3,padding:"1px 4px",fontWeight:600},"1H"));
+  hdr.appendChild(leftGrp);
+
+  // Center: price + change on ONE line
+  var midGrp = div({display:"flex",alignItems:"center",gap:"5px",flex:1,justifyContent:"center"});
+  midGrp.appendChild(span({fontSize:15,fontWeight:700,color:"#fff",fontFamily:MONO,letterSpacing:-.3},fmtPrice(latest.c)));
+  midGrp.appendChild(span({fontSize:10,fontWeight:600,color:chColor},(change>=0?"▲":"▼")+Math.abs(change).toFixed(2)+"%"));
+  hdr.appendChild(midGrp);
+
+  // Right: countdown + chevron
+  var rightGrp = div({display:"flex",alignItems:"center",gap:"5px",flexShrink:0});
+  var cntEl = span({fontSize:9,color:C.muted});
+  cntEl.id = "refresh-status";
+  rightGrp.appendChild(cntEl);
+  var chevron = span({fontSize:10,color:C.muted,transition:"transform .25s",display:"inline-block",lineHeight:1},"▼");
+  rightGrp.appendChild(chevron);
+  hdr.appendChild(rightGrp);
+
+  card.appendChild(hdr);
+
+  // ── Collapsible chart body ─────────────────────────────
+  var body = div({overflow:"hidden",maxHeight:"0px",transition:"max-height .3s ease",borderTop:"0px solid "+C.border});
+
+  var chartWrap = div({position:"relative",padding:"0 6px 6px"});
+  chartWrap.appendChild(buildChart(candles, preEma20, preEma50));
+  var ttEl = div({
+    position:"absolute", top:"4px", left:"64px",
+    fontFamily:MONO, fontSize:9, color:C.text,
+    background:C.panel+"ee", padding:"2px 7px", borderRadius:4,
+    border:"1px solid "+C.border, pointerEvents:"none",
+    opacity:0, transition:"opacity .15s", whiteSpace:"nowrap"
+  });
+  ttEl.id = "chart-tooltip";
+  chartWrap.appendChild(ttEl);
+  body.appendChild(chartWrap);
+
+  var srcEl = div({fontSize:8,color:C.muted,textAlign:"right",padding:"0 8px 6px"},
+    ["via "+source+" · "+updated.getHours().toString().padStart(2,"0")+":"+updated.getMinutes().toString().padStart(2,"0")]);
+  body.appendChild(srcEl);
+  card.appendChild(body);
+
+  // ── Toggle logic ───────────────────────────────────────
+  hdr.setAttribute("role","button");
+  hdr.setAttribute("aria-expanded","false");
+  hdr.setAttribute("aria-label","Toggle chart view");
+  hdr.onclick = function() {
+    isOpen = !isOpen;
+    body.style.maxHeight  = isOpen ? "260px" : "0px";
+    body.style.borderTopWidth = isOpen ? "1px" : "0px";
+    chevron.textContent       = isOpen ? "▲" : "▼";
+    chevron.style.color       = isOpen ? C.accent : C.muted;
+    hdr.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  };
+
+  return card;
+}
+
+function buildSignalCard(ind) {
+  var sig   = ind.signal;
+  var sc    = sig==="BUY" ? C.buy : sig==="SELL" ? C.sell : C.wait;
+  var sanim = sig==="BUY" ? "pulse-buy" : sig==="SELL" ? "pulse-sell" : "pulse-wait";
+  var icon  = sig==="BUY" ? "▲" : sig==="SELL" ? "▼" : "◆";
+  var score = sig==="BUY" ? ind.bull : sig==="SELL" ? ind.bear : Math.max(ind.bull,ind.bear);
+  var pct   = Math.round(score / ind.total * 100);
+  // Dark bg tokens: C.buy/sell/wait at ~8% opacity on C.bg
+  var bgDark = sig==="BUY" ? C.bgBuy : sig==="SELL" ? C.bgSell : C.bgWait;
+
+  var card = div({
+    background: "linear-gradient(160deg,"+bgDark+" 0%,#0c1220 100%)",
+    border: "2px solid "+sc+"44",
+    borderRadius: 14,
+    padding: "18px 18px 14px",
+    textAlign: "center",
+    marginBottom: 10,
+    position: "relative",
+    overflow: "visible",
+    boxShadow: "0 0 40px "+sc+"28, 0 4px 20px rgba(0,0,0,.6)"
+  });
+  card.setAttribute("role","status");
+  card.setAttribute("aria-label","Trading signal: "+sig+" — "+score+" of "+ind.total+" indicators agree");
+  // Separate pulse ring — doesn't conflict with card's box-shadow
+  var ring = div({
+    position:"absolute",top:-2,left:-2,right:-2,bottom:-2,
+    borderRadius:16,border:"2px solid "+sc+"44",
+    animation:sanim+" 2s infinite",pointerEvents:"none"
+  });
+  card.appendChild(ring);
+
+  // Icon inline + Signal word on same line
+  var sigRow = div({
+    display:"flex", alignItems:"center", justifyContent:"center",
+    gap:10, marginBottom:10
+  });
+  sigRow.appendChild(span({
+    fontSize:36, color:sc, lineHeight:1,
+    textShadow:"0 0 16px "+sc
+  }, icon));
+  sigRow.appendChild(span({
+    fontSize:56, fontWeight:900, color:sc, letterSpacing:4,
+    lineHeight:1, textShadow:"0 0 40px "+sc+", 0 0 12px "+sc+"bb"
+  }, sig));
+  card.appendChild(sigRow);
+
+  // Score row: "5 / 7  ·  71%" bigger and more readable
+  var scoreRow = div({
+    display:"flex", alignItems:"center", justifyContent:"center", gap:8, marginBottom:10
+  });
+  scoreRow.appendChild(span({fontSize:15,fontWeight:700,color:sc,fontFamily:MONO}, score+"/"+ind.total));
+  scoreRow.appendChild(span({fontSize:12,color:sc+"66"}, "·"));
+  scoreRow.appendChild(span({fontSize:13,fontWeight:600,color:sc+"cc"}, pct+"%"));
+  card.appendChild(scoreRow);
+
+  // Strength bar
+  var barTrack = div({
+    height:4, background:"rgba(255,255,255,.08)",
+    borderRadius:4, overflow:"hidden", position:"relative"
+  });
+  var barFill = div({
+    position:"absolute", top:0, left:0, height:"100%",
+    background:"linear-gradient(to right,"+sc+"77,"+sc+")",
+    borderRadius:4, boxShadow:"0 0 8px "+sc, transition:"width .7s ease"
+  });
+  barFill.style.width = pct+"%";
+  barTrack.appendChild(barFill);
+  card.appendChild(barTrack);
+
+  return card;
+}
+
+function indRow(label, value, statusText, statusColor) {
+  var row = div({display:"flex",justifyContent:"space-between",alignItems:"center",padding:"7px 0",borderBottom:"1px solid "+C.border+"33"});
+  var lft = div({display:"flex",alignItems:"center",gap:6,minWidth:0,flex:1,overflow:"hidden"});
+  lft.appendChild(span({fontSize:10,color:C.muted,whiteSpace:"nowrap"},label));
+  lft.appendChild(span({fontSize:11,color:C.text,fontFamily:MONO,whiteSpace:"nowrap"},value));
+  row.appendChild(lft);
+  row.appendChild(span({fontSize:11,fontWeight:700,color:statusColor,flexShrink:0,marginLeft:8,letterSpacing:.2},statusText));
+  return row;
+}
+
+function sectionLabel(txt) {
+  return div({
+    fontSize:9, color:C.muted, letterSpacing:.8,
+    textTransform:"uppercase", padding:"10px 0 4px",
+    borderTop:"1px solid "+C.border+"88", marginTop:6,
+    fontWeight:600
+  },[txt]);
+}
+
+function buildIndicatorCard(ind) {
+  var card = div({background:C.panel,border:"1px solid "+C.border,borderRadius:12,padding:"10px 14px 14px",marginBottom:8,className:"fadein",boxShadow:"0 2px 16px rgba(0,0,0,.4)"});
+  card.setAttribute("role","region");
+  card.setAttribute("aria-label","Technical indicators");
+
+  // ── Trend (2-row layout to avoid overflow) ───────────
+  var tr = ind.trend;
+  var trendWrap = div({paddingBottom:10,borderBottom:"1px solid "+C.border+"66",marginBottom:6});
+  var trendTop = div({display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:4});
+  trendTop.appendChild(span({fontSize:9,color:C.muted,letterSpacing:.5,fontWeight:600},"TREND"));
+  var tBadge = div({display:"inline-flex",alignItems:"center",gap:5,padding:"2px 8px",borderRadius:20,background:tr.color+"12",border:"1px solid "+tr.color+"40"});
+  tBadge.appendChild(span({fontSize:10,color:tr.color,fontWeight:600},tr.icon+" "+tr.label));
+  trendTop.appendChild(tBadge);
+  trendWrap.appendChild(trendTop);
+  trendWrap.appendChild(div({fontSize:9,color:C.muted,lineHeight:1.5},[tr.desc]));
+  card.appendChild(trendWrap);
+
+  // ── EMA ──────────────────────────────────────────────
+  card.appendChild(div({fontSize:9,color:C.muted,letterSpacing:.8,paddingBottom:4,fontWeight:600},["EMA (20 · 50 · 200)"]));
+  [
+    ["EMA 20",  ind.ema20,  ind.price > ind.ema20],
+    ["EMA 50",  ind.ema50,  ind.price > ind.ema50],
+    ["EMA 200", ind.ema200, ind.price > ind.ema200]
+  ].forEach(function(r) {
+    var bull = r[2];
+    card.appendChild(indRow(r[0], fmtPrice(r[1]), bull?"▲ ABOVE":"▼ BELOW", bull?C.buy:C.sell));
+  });
+
+  // ── RSI ──────────────────────────────────────────────
+  card.appendChild(sectionLabel("RSI (14)"));
+  var rsi      = ind.rsi;
+  var rsiColor = rsi<30?C.buy : rsi>70?C.sell : rsi<50?C.buy : C.sell;
+  var rsiLabel = rsi<30?"OVERSOLD ▲" : rsi>70?"OVERBOUGHT ▼" : rsi<50?"BULLISH":"BEARISH";
+
+  var rsiWrap = div({padding:"4px 0 6px",borderBottom:"1px solid "+C.border+"44"});
+  rsiWrap.appendChild(div({display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6},[
+    span({fontSize:13,fontWeight:700,color:C.text,fontFamily:MONO},rsi.toFixed(1)),
+    span({fontSize:11,fontWeight:700,color:rsiColor},rsiLabel)
+  ]));
+  // RSI bar: wrap is the outer container, bar fills it 100%
+  var rsiBarWrap = div({position:"relative",height:8,borderRadius:4,overflow:"visible",margin:"2px 0"});
+  var rsiBar = div({
+    position:"absolute", top:0, left:0, width:"100%", height:"100%",
+    borderRadius:4,
+    background:"linear-gradient(to right,"+C.buy+"60 0%,"+C.buy+"60 30%,"+C.border+"cc 30%,"+C.border+"cc 70%,"+C.sell+"60 70%,"+C.sell+"60 100%)"
+  });
+  var rsiMark = div({
+    position:"absolute", top:"50%", left:rsi+"%",
+    width:4, height:14,
+    background:rsiColor, borderRadius:2,
+    boxShadow:"0 0 8px "+rsiColor+", 0 0 3px #fff",
+    marginLeft:"-2px", transform:"translateY(-50%)"
+  });
+  rsiBarWrap.appendChild(rsiBar);
+  rsiBarWrap.appendChild(rsiMark);
+  rsiWrap.appendChild(rsiBarWrap);
+  rsiWrap.appendChild(div({display:"flex",justifyContent:"space-between",marginTop:4},[
+    span({color:C.buy,fontSize:9},"30"),
+    span({color:C.muted,fontSize:9},"50"),
+    span({color:C.sell,fontSize:9},"70")
+  ]));
+  card.appendChild(rsiWrap);
+
+  // ── MACD ─────────────────────────────────────────────
+  card.appendChild(sectionLabel("MACD (12 · 26 · 9)"));
+  var macdBull = ind.macd > ind.macdSignal;
+  var histBull = ind.histogram > ind.prevHistogram;
+  card.appendChild(indRow(
+    "MACD / Signal",
+    fmtSigned(ind.macd)+" / "+fmtSigned(ind.macdSignal),
+    macdBull?"▲ BULLISH":"▼ BEARISH",
+    macdBull?C.buy:C.sell
+  ));
+  card.appendChild(indRow(
+    "Histogram",
+    fmtSigned(ind.prevHistogram,2)+" → "+fmtSigned(ind.histogram,2),
+    histBull?"▲ RISING":"▼ FALLING",
+    histBull?C.buy:C.sell
+  ));
+
+  return card;
+}
+
+function buildDisclaimer() {
+  return div({padding:"10px 4px 2px",marginBottom:4},[
+    el("p",{color:C.muted,fontSize:9,lineHeight:1.5,textAlign:"center"},["⚠ Educational use only · Apply risk management before entry"])
+  ]);
+}
+
+// ═══════════════════════════════════════════════════════════
+// NOTIFICATION SYSTEM
+// ═══════════════════════════════════════════════════════════
+var NOTIF_KEY = "eth_last_signal";
+
+function getLastSignal() {
+  try { return localStorage.getItem(NOTIF_KEY) || null; } catch(e) { return null; }
+}
+function saveLastSignal(sig) {
+  try { localStorage.setItem(NOTIF_KEY, sig); } catch(e) {}
+}
+
+function requestNotifPermission(cb) {
+  if (!("Notification" in window)) return;
+  if (Notification.permission === "granted") { if (cb) cb(); return; }
+  if (Notification.permission === "denied")  return;
+  Notification.requestPermission().then(function(p) {
+    if (p === "granted" && cb) cb();
+  });
+}
+
+function sendNotif(sig, ind) {
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "granted") return;
+  var icons = { BUY:"▲", SELL:"▼", WAIT:"◆" };
+  var colors = { BUY:C.buy, SELL:C.sell, WAIT:C.wait };
+  var bodies = {
+    BUY:  "Signal strength "+Math.round((ind.bull/ind.total)*100)+"% · "+ind.trend.label+" · RSI "+ind.rsi.toFixed(1),
+    SELL: "Signal strength "+Math.round((ind.bear/ind.total)*100)+"% · "+ind.trend.label+" · RSI "+ind.rsi.toFixed(1),
+    WAIT: "Mixed signals · "+ind.trend.label+" · RSI "+ind.rsi.toFixed(1)
+  };
+  try {
+    var n = new Notification("ETH/USDT — " + icons[sig] + " " + sig, {
+      body: bodies[sig] || "",
+      icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0e1a'/><text y='68' x='50' text-anchor='middle' font-size='55' fill='"+encodeURIComponent(colors[sig] || C.accent)+"'>⬡</text></svg>",
+      badge:"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect width='96' height='96' rx='18' fill='%230a0e1a'/><text y='68' x='48' text-anchor='middle' font-size='54' fill='%2300e5ff'>⬡</text></svg>",
+      tag: "eth-signal",
+      renotify: true,
+      vibrate: [200, 100, 200]
+    });
+    n.onclick = function() { window.focus(); n.close(); };
+    setTimeout(function() { n.close(); }, 8000);
+  } catch(e) { console.warn("Notification error:", e); }
+}
+
+function checkSignalChange(ind) {
+  var prev = getLastSignal();
+  var curr = ind.signal;
+  saveLastSignal(curr);
+  if (prev && prev !== curr) {
+    sendNotif(curr, ind);
+    return true;
+  }
+  return false;
+}
+
+// Build small notification permission banner
+function buildNotifBanner() {
+  if (!("Notification" in window)) return null;
+  if (Notification.permission === "granted") return null;
+  if (Notification.permission === "denied")  return null;
+
+  var banner = div({
+    background: C.accent+"11", border:"1px solid "+C.accent+"44",
+    borderRadius:10, padding:"8px 12px", marginBottom:8,
+    display:"flex", alignItems:"center", justifyContent:"space-between",
+    gap:"8px"
+  });
+  banner.appendChild(div({fontSize:10, color:C.accent, flex:1},
+    ["🔔 Enable notifications to get alerted when signal changes."]));
+  var btn = el("button", {
+    background:C.accent, color:"#000", border:"none",
+    borderRadius:6, padding:"4px 12px", fontSize:10,
+    fontWeight:700, cursor:"pointer", flexShrink:0
+  }, ["Enable"]);
+  btn.onclick = function() {
+    requestNotifPermission(function() {
+      banner.style.display = "none";
+    });
+  };
+  banner.appendChild(btn);
+  return banner;
+}
+
+// ═══════════════════════════════════════════════════════════
+// MAIN APP CONTROLLER
+// ═══════════════════════════════════════════════════════════
+var app             = document.getElementById("app");
+var refreshTimer    = null;
+var countdownTimer  = null;
+var nextRefreshAt   = null;
+var lastData        = null;
+
+function render(state, data) {
+  app.innerHTML = "";
+
+  if (state === "loading") {
+    app.appendChild(buildLoading());
+    return;
+  }
+  if (state === "error") {
+    app.appendChild(buildError(data, loadData));
+    return;
+  }
+
+  // state === "ok" — signal FIRST for maximum visibility
+  var notifBanner = buildNotifBanner();
+  if (notifBanner) app.appendChild(notifBanner);
+  app.appendChild(buildSignalCard(data.ind));
+  app.appendChild(buildChartCard(data.candles, data.source, data.updated, data.ema20arr, data.ema50arr));
+  app.appendChild(buildIndicatorCard(data.ind));
+  app.appendChild(buildDisclaimer());
+}
+
+// ── Countdown ticker ─────────────────────────────────────
+function startCountdown() {
+  clearInterval(countdownTimer);
+  nextRefreshAt = Date.now() + 60000;
+  countdownTimer = setInterval(function() {
+    var el = document.getElementById("refresh-status");
+    if (!el) return;
+    var secs = Math.max(0, Math.round((nextRefreshAt - Date.now()) / 1000));
+    el.textContent = secs > 0 ? "Refresh " + secs + "s" : "Updating...";
+    el.style.color  = secs <= 10 ? C.wait : C.muted;
+  }, 1000);
+}
+
+function setUpdatingBadge(msg) {
+  var el = document.getElementById("refresh-status");
+  if (el) { el.textContent = msg || "Updating..."; el.style.color = C.wait; }
+}
+
+// ── Data loader ───────────────────────────────────────────
+function loadData() {
+  if (!lastData) {
+    render("loading");
+  } else {
+    setUpdatingBadge("Updating...");
+  }
+
+  fetchCandles()
+    .then(function(result) {
+      var ind = calcSignal(result.candles);
+      checkSignalChange(ind); // check & notify if changed
+      lastData = { candles:result.candles, ind:ind, source:result.source, updated:new Date(), ema20arr:ind._ema20arr, ema50arr:ind._ema50arr };
+      render("ok", lastData);
+      startCountdown();
+    })
+    .catch(function(e) {
+      if (!lastData) {
+        render("error", e.message);
+      } else {
+        setUpdatingBadge("Failed — retrying...");
+        setTimeout(startCountdown, 3000);
+      }
+    });
+}
+
+// Start — request notif permission after first successful load
+loadData();
+clearInterval(refreshTimer);
+refreshTimer = setInterval(loadData, 60 * 1000);
+
+// ═══════════════════════════════════════════════════════════
+// SERVICE WORKER
+// ═══════════════════════════════════════════════════════════
+// Inject manifest
+(function() {
+  var mB64 = "ewogICJuYW1lIjogIkVUSCBTaWduYWwgQW5hbHl6ZXIiLAogICJzaG9ydF9uYW1lIjogIkVUSCBTaWduYWwiLAogICJkZXNjcmlwdGlvbiI6ICJTaW55YWwgdHJhZGluZyBFVEgvVVNEVCBvdG9tYXRpcyBcdTIwMTQgRU1BICsgUlNJICsgTUFDRCBwYWRhIHRpbWVmcmFtZSAxIGphbSIsCiAgInN0YXJ0X3VybCI6ICIuL2luZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsCiAgInRoZW1lX2NvbG9yIjogIiMwYTBlMWEiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwYTBlMWEiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFIamtsRVFWUjRuTzNkVDI0VVJ4akc0VzlzSktLVzdDR0o1QVdnN0xIRUJrV0NneVRiUkZ5QUcrQUZ1UUVYc0pKdHNtQ2RFNEFVc1VFSyt3allKZEFHdGV6RnlGblliWHFhNnYvVlhWWGY5M3NrSk95WjhWUjN2MjlWOTlnZXIvWU9EcitSaFd6TzhuK1hlaTZrYS9mNit0dWxudXVhaUp6UDljVTNaL2wvMVkrTHY5ODhtT3U1b0VkMmVIdHJvdHk5dnA1dGtsN3RIUngrN2ZNTFZrTlA0T0ZEZG5qN2VmbC8zMlh3Vm9BeStHMmhyMjRJMEtSUGhud1ZZYlYzY0hoanloZlluT1h2UmR5REp2RHdvUzFidTlmWGt5YndTUVhZbk9YdkNUNlcwcFMxS1NVWVZRRFhyRS9vc1NSWDlzWVVZV2ZvQXdnL1lsRE5YSm5GTXB0RHJQWU9EdGQ5Nzd3NXpUOFVyeXZCdjBQd0VWNDlrN3RmclcvMGZXenZGWUR3STFiVkxCYXYzenpZbk9ZZitqNjJWd0VJUDJJM3RnUTdjdkdkNE1aL2hCK3BhQ2hCYTc1YlY0RE5hWjRUZnFURVVZSzg3ZjZOQmFnL2tQQWpGZldzdHBXZ2RRVW9aMy9DajlTVW1hMmV3Ymc0cndHcXB6NkVINm1xbHVCeUZlaStCdGljNWlkZHJRRlNjMW1Day9yblcwK0JtUDJSdXE0TWI1MENWV2Qvd2c4dGFxZENKOUwzWlZCQXU2c0NiRTd6ajV6N1E3dkxWZUJqK2JGekJlRDBCOW8wWlhyV1g0b0hJbll1Y3JrQ2JFN3pUMXo4UXJ2YXhmQW5rUkcvRUFOb1VyNE1DbGpFeTZDd2JaWHQzenJuL0IrV1ZQUE9DZ0RUS0FCTW93QXdqUUxBTkFvQTB5Z0FUS01BTUkwQ3dMUnIyejhKd1U5RndKSnpWZ0RZUmdGZ0dnV0FhUlFBcGxFQW1FWUJZQm9GZ0drVUFLWlJnSmtWTDkrMi9vRUdoRVVCWmxTR254TEVpd0xNcEI1NlNoQW5DZ0RUS01BTW1tWjdWb0g0VUFEUHVrSk9DZUpDQVR6cUcyNUtFQThLNE1uUVVGT0NPRkFBbUVZQlBCZzdtN01LaEVjQkpwb2FZa29RRmdXWXdGZDRLVUU0RkdBazM2R2xCR0ZRZ0JIbUNpc2xXQjRGZ0drVVlLQzVaMmxXZ1dWUmdBR1dDaWNsV0E0RjZHbnBVRktDWlZDQUhrS0ZrUkxNandMQU5BclFJZlFzSFByNXRhTUFMV0lKWHl6ajBJZ0NOSWd0ZExHTlJ3c0s0QkJyMkdJZFY4b29BRXlqQURXeHo3S3hqeTgxRktBaWxYQ2xNczRVVUlCTHFZVXF0ZkhHaWdKSXVtRktkZHd4TVYrQTFFT1UrdmhETTE4QTJHYTZBRnBtVHkzYkVZTFpBbWdMamJidFdZckpBbWdOaTlidG10TzEwQU5ZbXZhUUZDL2Y1dG05Vyt2UTQxaGFrVDl5SHRkcy9iUjFYNWhjQWFCTFUvaTdiaE14VmdEdHMzL0p5bmI2WUtZQTFrSmhiWHZITWxFQXEyR3d1dDFEcUMrQTlSQlkzLzR1NmdzQXRGRmRBR2EvQyt5SFptb0x3RUhmeHY1d1Uxa0FEclliKytWTDZnckFRVzdIL3RtbXFnQWMzSDdZVDUrcEtnQXdsSm9DTUtzTncvNjZvT0tuUVl1ajR4Znk3TS9RdzNDN2V6Y0xQWVFteGU5L1NmYmo5M2REanlNa0ZRWEluank4WC82L09EcCtFWElzS2JBZStpb1ZCYWlpREc2RTNrMWRBYXFzbDRIUWQxTmRnQ29yWlNEMHc2Z29RSEYwL0V2b01UUjY5V3JScHl1T2pwOE51WC8yNU9Iam1ZWXlXZkhQVDg2Skt2dnV0L3V1ejQraDRtWFFtQTlpekdMZWIwM2g3N3B0S0JVRkVJbjdZTWFJL1hWQlRRR0FNVlFWZ0ZtdEgvYlRaNm9LSU1MQjdjTCsyYWF1QUNJYzVDYnNseStwTElBSUI3dU8vZUdtdGdBaUhQUVMrNkdaNmdJQVhkUVh3UHJzWjMzN3U2Z3ZnSWpkRUZqZDdpRk1GRURFWGhpc2JlOVlaZ29nWWljVVZyYlRCMU1GQU9yTUZVRDc3S2g5KzN4VDhmc0FRMlZQSGo2TytuY0lSa29oL01YTEgzNTFmVDY3OThmUFM0OUZ4T0FLVUVvaExFT2tzRDFONGUrNmJVNW1DeUNTUm1qNjBMSWRJWmd1QUdDK0FLblBucW1QUHpUekJSQkpOMFNwampzbUZPQlNhbUZLYmJ5eG9nQVZxWVFxbFhHbWdBTFV4QjZ1Mk1lWEdnb0EweWlBUTZ5emJLempTaGtGYUJCYjJHSWJqeFlVb0VVc29ZdGxIQnBSZ0E2aHd4ZjYrYldqQURDTkF2UVFhaFptOXA4ZkJlaHA2VEFTL21WUWdBR1dDaVhoWHc0RkdHanVjQkwrWlZFQW1FWUJScGhybG1iMlh4NEZHTWwzV0FsL0dCUmdBbCtoSmZ6aFVJQ0pwb2JYVXZqYjN2cWtmbHZibjBLdDM1YXRuNjRiNzl0eW00aklLdHUvZVY2OGZ2dEFSQ1M3Yyt0NTI1M1JiTXo3REZrS2YweXFlV2NGZ0drVXdKT2hzem16Znh3b2dFZDlRMDM0NDBFQlBPc0tOK0dQQ3dXWVFWUElDWDk4S0FCTW93QXpxYy8yelA1eG9nQXpLa05QK09ORkFXWkcrT05HQVdBYUJZQnBGQUNtVVFDWVJnRmdHZ1dBYVJRQXBsRUFtRVlCWUJvRmdHa1VBS1pSQUpoR0FXQWFCWUJwRkFDbVVRQ1lSZ0ZnMms1eDhtNVZ2aVZpK1paeGdGYlZ0MFVzVHQ2dFdBRmdHZ1dBYVJRQXB1MklpSEFkQUF2cTUvOGlyQUF3emxrQVZnRm8wNVRwcXdKVVQ0TUFyYXFuUHlLY0FzRzRyUUp3TVF5TlhCZS9wZFlWZ0JJZ2RWMFovcUlBWEF0QUk5ZnNMOUwwS2hDblFsQ2c3ZFNuMUhvS1JBbVFxcjUvKzdxeEFQWEdVQUtrb3A3VnB0bGZwT3NpdUhZOVFBa1F1MnBHMjA1OVNwM2ZCNkFFU01YUThJdjAvRVlZSlVEc3hvUmZaTUIzZ2lrQllqVTIvQ0lpdmU5NDlRVDdOODlkVHpyMDZ3QlR1VEk0SlB3aUkzNFdxSHdDVmdPRTVDUDhJaU5XZ0twcy8rYTVLL3lzQ0poRFU5YkdCTDgwcVFBaTdsT2lxOXNvQWp4b3k5YVU4SXQ0S0VDcHJRaFg5NkVRNktGUGhxWUd2K1N0QUtXeUNDSmNHOENQcmV0TlQ4RXZlUzlBVmJVTUloUUMvZFRQRkh5SHZtcldBdFRWQ3dHNHpCbjR1djhCWWNqNi9FbVN3WU1BQUFBQVNVVk9SSzVDWUlJPSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFWS0VsRVFWUjRuTzNkelk1Y3gza0c0Q0pGd01FQU1wMEUwTUl5dkJjQmJZUUEwb1VrMnhpNkFkK0J1WkR1d0RkQXhOdDQ0WFd1UUFZQ2JReEUreUR5THJGSHRnZlVZc0FzcUI0Mm05MTkvcXBPL1h6UEF4Z3dKSExtOURuVjliNVY1M1RyMGZzZlBQdUh4R3ozMzkvK2IrMWpBT0JkNy8zbzZUL1dQb2FlUEVrcHZhcDlFQzI2Ly83Mi84Nzk4N3YvK3AvUDlqNFdBS2JkUFB2WjJRWGFlejk2YXFGN3hxUDNQM2oyOTdVUG9yWnpZUy9vQWNadzgreG5YNTMrTTZVZ2FBRTREWHhoRHhETGFTbUlXQWpDRkFDaEQ4QTVVY3ZBMEFYZ09QUUZQZ0J6SEJlQ2tjdkFrQVZBOEFPdzFlaEZZS2dDY0FqKzBxRi83b0VTQU9yWmE5NGZxUWgwWHdCS3JmYUZQTUFZU21WRDcyV2cyd0tRTy9nRlBrQU11VE9qMXlMdzZQMFBudjJrOWtFc2RmLzk3WjlTMm5ZUkJUNEFLZVhKa3ZkKzlMUzd4WFJYQldCcjhBdDlBSzdabWk4OUZZRXVDb0RnQjJCUEVZcEE4d1hnL3Z2YlA2MjVFRUlmZ0J6V1psRHJKYURaQXJCMjFTLzRBU2hoYlI2MVdnU2FMQUJyVnYyQ0g0QTlyTW1uRmt0QVV3Vmd6YXBmOEFOUXc1cXNhcWtJTkZNQWxvYS80QWVnQlV0enE1VVMwRVFCV0xMbEwvZ0JhTkdTSEd1aEJEeDYvNE5uVDJ2OTh2dVh0MzlPS2FXN2IyYWV0SStFUHdEdFdwcG43LzNkMDU4VVBhQXJxaFdBSmVFditBSG95WkpzcTFVQ0h0ZjRwY0lmZ0pITnlhNURCaDR5Y1crNzd3RGN2N3o5c3kxL0FDSllrbmQ3N3dUc1dnRG1oci9nQjJBa2M3TnZ6eEt3MnkwQTRROUFWSE52Q2V4NU8yQ1hBaUQ4QVlpdXRSSlF2QUFJZndCNHJhVVNVUFFaZ0RuaEwvZ0JpR2hPUHBaOEpxRFlEb0R3QjRETHBqS3c5RTdBNDVUU3E5ei9FLzRBTUcxQkNjaWUxZGwzQU81ZjN0NU8vUm5oRHdDdnpjbkVPZG02Vk5ZQ2NEakFhNnQvNFE4QWI3dVdqVWZmR0ppMUJHVGZBUkQrQUxEY25CS1FVN1lDY1AveTlyYkVBUUlBRDg4RFpOc0Z5RklBNW9TLzFUOEFYRGZ6b2NBc0pXQnpBZkRRSHdEa3M5ZERnVmwyQU56M0I0Qjg5bmdlWUZNQm1OcjZGLzRBc001VUNkaTZDN0Q2aTRBODlBY0E5UnlWZ0RhK0NPakE2aDhBdGltWnBhc0t3UDNMMis5cy9RTkFlVE51Qlh5MzV1Y3VMZ0RDSHdEMlZhSUVGTHNGQUFDMGExRUJzUG9IZ0RweTd3Smsyd0VRL2dCUVZzNnNuVjBBcGxiL0FFQTlTM2NCWmhXQXFSOW85UThBKzVqSzNMa2xZUFlPZ05VL0FMUnRTVlpQZmhPZzFUOEF0R1htTHNEMmJ3SzArZ2VBUHN6TjdFMmZBckQ2QjRBNnRtYncxUUp3Ly9MMkwxYi9BTkNYSHo0UjhKZHJmMmIxRG9EVlB3RFV0U1dMTHhZQXEzOEE2TmZVTHNDcUhRQ3Jmd0JvdzlwTVBsc0FwdTRiQUFCOXVKVHBGM2NBYlA4RFFOK3VaZm1sTHdLNnlQWS9BTFJsUmpaUGZ4SFEvY3ZidjFyOUE4QVlmbmdZOEsrbi8zelJRNEJXL3dEUXBxVVp2ZW1iQUFHQVByMVZBTTV0RVFBQS9Udk4rSGQyQUM3ZC83ZjlEd0J0dTVUVjU3TGRMUUFBQ0VnQkFJQ0FIZ3FBai84QndMaE9QdzQ0YXdmQS9YOEE2TVBjekg2U0pyNzVEd0FZeXF1VVBBTUFBQ0VwQUFBUTBPT1VVcnAvZWZzM24vOEhnREZjK3o2QSs1ZTNmMHZKRGdBQWhLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJQVDQyaWNBQUlDeEhENEpjSFVId0VjQUFhQlBVeG51RmdBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJLUUFBRUJBQ2dBQUJQUWtwVmRYL3ZXMWZ3Y0E5T21WSFFBQWlFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFBQUNFZ0JBSUNBRkFEb3hOM1gzOTdXUGdaZ0hBb0FkT0FRL2tvQWtJc0NBSTA3RFgwbEFNaEJBUUNBZ0JRQWFOaWwxYjVkQUdBckJRQWFOUlh5U2dDd2hRSUFEWm9iN2tvQXNKWUNBSTFaR3VwS0FMQ0dBZ0FBQVNrQTBKQzFxM203QU1CU0NnQTBZbXVJS3dIQUVnb0FOQ0JYZUNzQndGd0tBRlNXTzdTVkFHQU9CUUFBQWxJQW9LSlNxM1c3QU1BVUJRQXFLUjNTU2dCd2pRSUFGZXdWemtvQWNJa0NBRHZiTzVTVkFPQWNCUUIyVkN1TWxRRGdsQUlBQUFFcEFMQ1QycXZ3MnI4ZmFJc0NBRHRvSlh4Yk9RNmdQZ1VBQ21zdGRGczdIcUFPQlFBS2FqVnNXejB1WUQ4S0FBQUVwQUJBSWEydnNscy9QcUFzQlFBSzZDVmNlemxPSUQ4RkFETHJMVlI3TzE0Z0R3VUFNdW8xVEhzOWJtQTlCUUFBQWxJQUlKUGVWOUc5SHord2pBSUFHWXdTbnFPOERtQ2FBZ0FialJhYW83MGU0RHdGQURZWU5TeEhmVjNBR3dvQUFBU2tBTUJLbzYrU1IzOTlFSjBDQUN0RUNjY29yeE1pVWdCZ29XaWhHTzMxUWhRS0FDd1FOUXlqdm00WW1RSUFBQUVwQURCVDlGVnc5TmNQbzFFQVlBYmg5NXJ6QU9OUUFHQ0MwSHViOHdGalVBRGdDbUYzbnZNQy9WTUFBQ0FnQlFBdXNNcTl6dm1CdmlrQWNJWndtOGQ1Z240cEFIQkNxQzNqZkVHZkZBQTRJc3pXY2Q2Z1B3b0EvRUNJYmVQOFFWOFVBQUFJU0FHQVpQV2FpL01JL1ZBQUNFOW81ZVY4UWg4VUFFSVRWbVU0cjlBK0JZQ3doRlJaemkrMFRRRUFnSUFVQUVLeU90Mkg4d3p0VWdBSVJ5anR5L21HTmlrQWhDS002bkRlb1QwS0FHRUlvYnFjZjJpTEFnQUFBU2tBaEdEMTJRYlhBZHFoQURBOG9kTVcxd1Bhb0FBd05HSFRKdGNGNmxNQUdKYVFhWnZyQTNVcEFBQVFrQUxBa0t3dSsrQTZRVDBLQU1NUktuMXh2YUFPQllDaENKTSt1VzZ3UHdXQVlRaVJ2cmwrc0M4RkFBQUNVZ0FZZ3RYakdGeEgySThDUVBlRXhsaGNUOWlIQWtEWGhNV1lYRmNvVHdHZ1cwSmliSzR2bEtVQUFFQkFDZ0Jkc2pxTXdYV0djaFFBdWlNVVluRzlvUXdGZ0s0SWc1aGNkOGhQQWFBYlFpQTIxeC95VWdBQUlDQUZnQzVZL1pHU2NRQTVLUUEwejZUUE1lTUI4bEFBYUpySm5uT01DOWhPQWFCWkpubXVNVDVnR3dXQUpwbmNtY000Z2ZVVUFBQUlTQUdnT1ZaMUxHRzh3RG9LQUUweG1iT0djUVBMS1FBMHd5VE9Gc1lQTEtNQTBBU1ROemtZUnpDZkFnQUFBVDJwZlFCZzFVWk9kMTkvZTN2enlZZFBheDhIWEhOMys4dEY4OTdOMDE5bkg5TjJBS2hLK0ZPQ2NVWExsb2IvMnI4elJRR2dHcE0wSlJsZnRHaExrT2N1QVFvQVZaaWMyWU54Umt0eUJIak9FcUFBQUVCaE9ZTTcxODlTQU5pZFZSbDdNdDdnUEFXQVhabU1xY0c0ZzNjcEFPekdKRXhOeGgrOFRRRmdGeVpmV21BY3doc0tBQUFFcEFCUW5GVVhMVEVlNFRVRmdLSk10clRJdUFRRmdJSk1zclRNK0NRNkJZQWlUSzcwd0RnbE1nVUFBQUpTQU1qT3FvcWVHSzlFcFFDUWxjbVVIaG0zUktRQWtJMUpsSjRadjBTakFKQ0Z5Wk1SR01kRW9nQUFRRUFLQUp0Wk5URVM0NWtvRkFBMk1Wa3lJdU9hQ0JRQVZqTkpNakxqbTlFcEFLeGljaVFDNDV5UktRQXNabElrRXVPZFVTa0FBQkNRQXNBaVZrTkVaTnd6SWdXQTJVeUNSR2I4TXhvRmdGbE1mdUI5d0ZnVUFDYVo5T0FON3dkR29RQUFRRUFLQUZkWjdjQzd2QzhZZ1FMQVJTWTV1TXo3Zzk0cEFKeGxjb05wM2lmMFRBSGdIU1kxbU0vN2hWNHBBQUFRa0FMQVc2eG1ZRG52RzNyMHBQWUIwSTY3NXk5K24zNzNIN1VQZzBzKy92aW05aUZ3MmQyLy8yZTYrWmQvK3JqMmNjQmNDZ0FQYnI3NC9OUEQvNzk3L3VMM05ZOEZlaUgwNlpVQ3dGbktBRndtOUJtQkFzQWtaUUNFUHVOUkFGaEVHU0FTb2MvSUZBQldVd1lZa2RBbkNnV0FMSlFCZWliMGlVZ0JJRHRsZ0I0SWZhSlRBQ2hLR2FBbFFoL2VVQURZelhFWlNFa2hvRHlCRDVjcEFGUmpkNEFTaEQ3TW93RFFCR1dBTFlRK0xLY0EwQnhsZ0RtRVBteWpBUERnN3ZtTEwyc2ZBMWY4NFErMWo2QXBkODlmL0s3Mk1aeTYrZUx6WDlVK0J1YTcrKzkvWGJUQXVQbjViejZkL2xQOThKOEQ1b0hKQzliei91bkwwdkJmKzNkYXBnRHdGcE1ZTE9kOTA1Y3RRVDVTQ1ZBQUFBZ2pSNENQVWdJVUFONWhOUVB6ZWIvMEkyZHdqMUFDRkFET01xbkJOTzhUZXFZQWNKSEpEUzd6L3FCM0NnQlhtZVRnWGQ0WGpFQUJBSUNBRkFBbVdlM0FHOTRQakVJQllCYVRIbmdmTUJZRmdObE1ma1JtL0RNYUJZQkZUSUpFWk53eklnVUFBQUpTQUZqTWFvaElqSGRHcFFDd2lrbVJDSXh6UnFZQXNKckprWkVaMzR4T0FXQVRreVFqTXE2SlFBRmdNNU1sSXpHZWlVSUJBSUNBRkFDeXNHcGlCTVl4a1NnQVpHUHlwR2ZHTDlFb0FHUmxFcVZIeGkwUktRQmtaektsSjhZclVTa0FBQkNRQWtBUlZsWDB3RGdsTWdXQVlreXV0TXo0SkRvRmdLSk1zclRJdUFRRmdCMlliR21KOFFpdktRQUFFSkFDd0M2c3VtaUJjUWh2S0FEc3h1UkxUY1lmdkUwQllGY21ZV293N3VCZENnQzdNeG16SitNTnpsTUFBQ0FnQllBcXJNcllnM0VHbHlrQVZHTnlwaVRqQzY1VEFLaktKRTBKeGhWTVV3Q296bVJOVHNZVHpLTUFBRUJBQ2dCTnNHb2pCK01JNWxNQWFJYkpteTJNSDFoR0FhQXBKbkhXTUc1Z3VTZTFEd0JPM1h6eCthL3Vuci80c3ZaeDBBZmgzN2U3ci8vNTM1YjgrWnRQZnZ1TFVzY1NqUjBBQUtwWUd2NXIvdzduS1FBMHlhcU9PWXlUZm0wSmNpVWdEd1dBWnBuY3VjYjQ2RmVPQUZjQ3RsTUFhSnBKbm5PTWkzN2xERzRsWUJzRmdPYVo3RGxtUEVBZUNnQmRNT21Ua25FQU9Ta0FBQkNRQWtBM3JQNWljLzBoTHdXQXJnaUJtRngzeUU4Qm9EdkNJQmJYRzhwUUFPaVNVSWpCZFlaeUZBQUFDRWdCb0Z0V2gyTnpmYUVzQllDdUNZa3h1YTVRbmdKQTk0VEZXRnhQMkljQ3dCQ0V4aGhjUjlpUEFnQUFBU2tBRE1QcXNXK3VIK3hMQVdBb1FxUlByaHZzVHdGZ09NS2tMNjRYMUtFQU1DU2gwZ2ZYQ2VwUkFBQWdJQVdBWVZsZHRzMzFnYm9VQUlZbVpOcmt1a0I5Q2dEREV6WnRjVDJnRFFvQUlRaWROcmdPMEE0RkFBQUNVZ0FJdytxekx1Y2YycUlBRUlvUXFzTjVoL1lvQUlRampQYmxmRU9iRkFCQ0VrcjdjSjZoWFFvQUFBU2tBQkNXMVdsWnppKzBUUUVnTkNGVmh2TUs3Vk1BQ0U5WTVlVjhRaDhVQUVoQ0t4Zm5FZnFoQUFCQVFBb0EvTURxZFJ2bkQvcWlBTUFSSWJhTzh3YjlVUURnaERCYnh2bUNQaWtBY0laUW04ZDVnbjRwQUhDQmNMdk8rWUcrS1FBQUVKQUNBRmRZNVo3bnZFRC9GQUNZSU96ZTVuekFHQlFBbUVIb3ZlWTh3RGdVQUpncGV2aEZmLzB3R2dVQUFBSlNBR0NCcUt2Z3FLOGJScVlBd0VMUndqRGE2NFVvRkFCWUlVb29Sbm1kRUpFQ0FDdU5IbzZqdno2SVRnRUFnSUFVQU5oZzFGWHlxSzhMZUVNQmdJMUdDOHZSWGc5d25nSUFHWXdTbXFPOERtQ2FBZ0NaOUI2ZXZSOC9zSXdDQU1CdWJqNzU3UzlxL2F5Ym4vL20wMnkvZStIUHVubjY2NmZaZm5lbW42VUFRRWE5cnFKN1BXNzZsS01FclAwWk9VckEycCtSSTdoekZna0ZBRExyTFV4N08xN0dzS1VFYkMwUVcwckExZ0t4SmNCemhuOUtDZ0FVMFV1bzluS2NqR2xOa09lNmhiQW15SFBkUWxnVDVMbkRQNldVSHQzOCtLZXY3cjc1OXJPenYvQ2pENy9LL1FzaGtydm5MNzZzZlF5WENIOFkzN1Y4dHdNQUFBRXBBRkJRcTZ2c1ZvOEwySThDQUlXMUZyYXRIUTlRaHdJQU8yZ2xkRnM1RHFBK0JRQjJVanQ4YS85K29DMEtBQUFFcEFEQWptcXR3cTMrZ1ZNS0FPeHM3ekFXL3NBNUNnQlVzRmNvQzMvZ0VnVUFLaWtkenNJZnVFWUJnSXBLaGJUd0I2WW9BQUFRa0FJQWxlVmVyVnY5QTNNb0FOQ0FYS0V0L0lHNUZBQm94TmJ3RnY3QUVnb0FOR1J0aUF0L1lDa0ZBQUFDVWdDZ01VdFg4MWIvd0JvS0FEUm9icWdMZjJBdEJRQWFOUlh1d2gvWVFnR0FobDBLZWVFUGJLVUFBRUJBQ2dBMDduUzFiL1VQNUtBQVFBY09vUy84Z1Z3VUFPaUU4QWR5VWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDVWdBQUlDQUZBQUFDdWxvQTdyNzU5ck85RGdRQXlHY3F3eC9mZmZmSFJ6Y2ZmZmpWWGdjRUFOUno4OUdIWDkxOTk4ZEhiZ0VBUUVBS0FBQUVwQUFBUUVBS0FBQUVwQUFBUUVDUFUwcnAyaWNCZkJRUUFQcHlLYnNQbndCSXlRNEFBSVNrQUFCQVFBb0FBQVEwcXdCNERnQUErakEzc3g4S2dLOEVCb0J4SFQ4QW1KSmJBQUFRa2dJQUFBRzlVd0I4SHdBQTlPbmE1LzlQLzlsYkJlRDQzZ0FBTUk3VGpIY0xBQUFDV2xRQTNBWUFnRFl0emVoM0NvQ1BBd0xBT0U0Ly9uZXcrQmFBWFFBQWFNdWFiTDVZQU93Q0FFRGZybVg1MlFMZzB3QUFNSVpMbWI3cVV3QnVBd0JBRzlabThzVUM0R0ZBQU9qWHBZZi9EbFovRDRCZEFBQ29hMHNXWHkwQWRnRUFvRDlUcS8rVU5uNFRvRjBBQUtoamF3YlBLZ0IyQVFDZ0QzTXplN0lBVEcwaDJBVUFnSDFOWmUrY2ovUFB2Z1ZnRndBQTJyWWtxMmNWQUxzQUFOQ0dIS3YvbEJic0FQaEVBQUMwYTg2VC84YzJmUXJnbUYwQUFDZ3JaOVl1S2dCVHV3QktBQUNVY1Mxamw2NytVOHE0QXdBQTlHTnhBYkFMQUFEN3lyMzZUMm50ZncxUUNRQ0FYWlFJLzVRSzNnSlFBZ0JnbTVKWnV2Ni9CdWhqZ1FCUXpaYlZmMHBiLzJOQWJnVUFRQkdsdHY0UHN0d0NVQUlBSUorcDhNL3hPellYZ0RrTlJBa0FnSG5tWk9iVzFYOUttWFlBNWp3UG9BUUF3SFZUV1psajYvOGczMWNCZXlnUUFJckpHZjRwRmZnWW9PY0JBR0M1UGU3N0g4dGFBQTdOUkFrQWdQbm1oSC9PMVg5S0JYWUFQQlFJQVBQdDlkRGZxU0xmQk9paFFBQ1l0dWREZjZmS2ZSV3dFZ0FBRjlVTS81UlNLdmFERDI1Ky9OTlhjNExlSndnQWlHQnVKcFlNLzVRSzdnQWN6UDE0b04wQUFFYlhTdmludEVNQlNFa0pBSUNXd2orbG5RcEFTa29BQUhHMUZ2NHA3ZkFNd0ttNXp3U2s1TGtBQVBxMkpPLzJEUCtVS2hTQWxGNlhnSlRtTjZMeVJ3UUFlUzNKdUwzRFA2VWRid0VjbS9PTmdROS8xaTBCQURyVGV2aW5WR2tINEdESlRrQktkZ01BYU52U1BLc1YvaWxWTGdBSG5nc0FvSGN0Mys4L3Avb0JITmdOQUtCSFBhMzZqelZ4RUFkTFMwQktpZ0FBZGF6SnFsYkNQNlhHQ3NEQmtsc0NEMzlIRVFCZ0IydnlxYVhnUDJqdWdBN1c3QWFrcEFnQVVNYmFQR294L0ZOcXVBQWNyTmtOU0VrUkFDQ1B0Um5VYXZBZk5IMXdCMnQzQXg3K3ZqSUF3QUpiODZiMThFK3Brd0p3b0FnQVVGS0U0RC9vNWtDUGJTMENLU2tEQUx5V0kwdDZDdjZEN2c3NDRGQUNVc3J6ZGNFS0FVQU11VE9qeC9CUHFlTUNjSkM3Q0R6OFhJVUFZQWlsc3FIWDREL28rdUJQNWJnMU1PdjNLQWNBVGRscjN1ODk5SThOODBLT2xkb1ZBQ0NPa1ZiNzV3ejNnbzRwQWdBc05YcndId3o3d2s0ZGw0R1VGQUlBWGp1OXJUdHk2QjhMOFNKUEtRTUFzVVVOL1dQaFh2QTVwNFVnSmFVQVlCVG5IdHlPR1BpbndwK0FTODZWZ3BRVUE0QldYZnFFbHJBL3owbFo2Rkl4QUtBdVFiL00vd1BnbG1HTTQ1S3l4QUFBQUFCSlJVNUVya0pnZ2c9PSIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0KfQ==";
+  var mJson = atob(mB64);
+  var blob = new Blob([mJson], {type:"application/manifest+json"});
+  var link = document.createElement("link");
+  link.rel = "manifest";
+  link.href = URL.createObjectURL(blob);
+  document.head.appendChild(link);
+})();
+
+// Inline Service Worker via blob
+if ("serviceWorker" in navigator) {
+  var swB64 = "Y29uc3QgQ0FDSEVfTkFNRSA9ICJldGgtc2lnbmFsLXYxIjsKCi8vIEFwcCBzaGVsbCDigJQgY2FjaGVkIG9uIGluc3RhbGwKY29uc3QgU0hFTEwgPSBbCiAgIi4vaW5kZXguaHRtbCIsCiAgIi4vbWFuaWZlc3QuanNvbiIsCiAgIi4vaWNvbnMvaWNvbi0xOTIucG5nIiwKICAiLi9pY29ucy9pY29uLTUxMi5wbmciCl07CgovLyBBUEkgZG9tYWlucyDigJQgYWx3YXlzIG5ldHdvcmssIG5ldmVyIGNhY2hlCmNvbnN0IEFQSV9IT1NUUyA9IFsiYmluYW5jZS5jb20iLCAia3Jha2VuLmNvbSIsICJjb2luYmFzZS5jb20iLCAiYWxsb3JpZ2lucy53aW4iLCAiY29pbmdlY2tvLmNvbSJdOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCJpbnN0YWxsIiwgZnVuY3Rpb24oZSkgewogIGUud2FpdFVudGlsKAogICAgY2FjaGVzLm9wZW4oQ0FDSEVfTkFNRSkKICAgICAgLnRoZW4oZnVuY3Rpb24oYykgeyByZXR1cm4gYy5hZGRBbGwoU0hFTEwpOyB9KQogICAgICAudGhlbihmdW5jdGlvbigpIHsgcmV0dXJuIHNlbGYuc2tpcFdhaXRpbmcoKTsgfSkKICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcigiYWN0aXZhdGUiLCBmdW5jdGlvbihlKSB7CiAgZS53YWl0VW50aWwoCiAgICBjYWNoZXMua2V5cygpLnRoZW4oZnVuY3Rpb24oa2V5cykgewogICAgICByZXR1cm4gUHJvbWlzZS5hbGwoCiAgICAgICAga2V5cy5maWx0ZXIoZnVuY3Rpb24oaykgeyByZXR1cm4gayAhPT0gQ0FDSEVfTkFNRTsgfSkKICAgICAgICAgICAgLm1hcChmdW5jdGlvbihrKSB7IHJldHVybiBjYWNoZXMuZGVsZXRlKGspOyB9KQogICAgICApOwogICAgfSkudGhlbihmdW5jdGlvbigpIHsgcmV0dXJuIHNlbGYuY2xpZW50cy5jbGFpbSgpOyB9KQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCJmZXRjaCIsIGZ1bmN0aW9uKGUpIHsKICB2YXIgdXJsID0gZS5yZXF1ZXN0LnVybDsKCiAgLy8gQVBJIGNhbGxzOiBuZXR3b3JrIG9ubHksIGRvbid0IGludGVyY2VwdAogIGZvciAodmFyIGkgPSAwOyBpIDwgQVBJX0hPU1RTLmxlbmd0aDsgaSsrKSB7CiAgICBpZiAodXJsLmluZGV4T2YoQVBJX0hPU1RTW2ldKSAhPT0gLTEpIHJldHVybjsKICB9CgogIC8vIEFwcCBzaGVsbDogY2FjaGUgZmlyc3QsIGZhbGxiYWNrIHRvIG5ldHdvcmsgYW5kIHVwZGF0ZSBjYWNoZQogIGUucmVzcG9uZFdpdGgoCiAgICBjYWNoZXMubWF0Y2goZS5yZXF1ZXN0KS50aGVuKGZ1bmN0aW9uKGNhY2hlZCkgewogICAgICB2YXIgbmV0d29ya0ZldGNoID0gZmV0Y2goZS5yZXF1ZXN0KS50aGVuKGZ1bmN0aW9uKHJlcykgewogICAgICAgIGlmIChyZXMgJiYgcmVzLnN0YXR1cyA9PT0gMjAwICYmIGUucmVxdWVzdC5tZXRob2QgPT09ICJHRVQiKSB7CiAgICAgICAgICB2YXIgY2xvbmUgPSByZXMuY2xvbmUoKTsKICAgICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFX05BTUUpLnRoZW4oZnVuY3Rpb24oYykgeyBjLnB1dChlLnJlcXVlc3QsIGNsb25lKTsgfSk7CiAgICAgICAgfQogICAgICAgIHJldHVybiByZXM7CiAgICAgIH0pOwogICAgICByZXR1cm4gY2FjaGVkIHx8IG5ldHdvcmtGZXRjaDsKICAgIH0pCiAgKTsKfSk7Cg==";
+  var swCode = atob(swB64);
+  var swBlob = new Blob([swCode], {type:"application/javascript"});
+  var swUrl  = URL.createObjectURL(swBlob);
+  navigator.serviceWorker.register(swUrl)
+    .then(function(r) { console.info("[SW] registered:", r.scope); })
+    .catch(function(e) { console.warn("[SW] failed:", e); });
+}
+
+// ═══════════════════════════════════════════════════════════
+// INSTALL PROMPT
+// ═══════════════════════════════════════════════════════════
+var deferred = null;
+var toast    = document.getElementById("toast");
+
+window.addEventListener("beforeinstallprompt", function(e) {
+  e.preventDefault();
+  deferred = e;
+  toast.style.display = "block";
+  toast.innerHTML = '📱 <strong style="color:#00e5ff">Install App</strong> — Tap to add to homescreen';
+  toast.onclick = function() {
+    deferred.prompt();
+    deferred.userChoice.then(function() { toast.style.display="none"; deferred=null; });
+  };
+  setTimeout(function() { toast.style.display="none"; }, 7000);
+});
+
+window.addEventListener("appinstalled", function() {
+  toast.style.display = "block";
+  toast.innerHTML = "✅ App installed!";
+  setTimeout(function() { toast.style.display="none"; }, 3000);
+});
+</script>
+</body>
+</html>
