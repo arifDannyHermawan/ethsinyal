@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>ETH Signal</title>
+  <meta name="theme-color" content="#0a0e1a"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="ETH Signal"/>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    html,body{background:#0a0e1a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;font-size:13px;-webkit-font-smoothing:antialiased}
+    .mono{font-family:'SF Mono','Fira Code',SFMono-Regular,Consolas,'Liberation Mono',monospace}
+    .label{font-size:10px;color:#7090b8;letter-spacing:.3px}
+    .caption{font-size:9px;color:#7090b8;letter-spacing:.5px;text-transform:uppercase}
+    .value{font-size:11px;color:#c8d8f0}
+    .status{font-size:11px;font-weight:700}
+    body{padding-bottom:env(safe-area-inset-bottom,16px)}
+
+    @keyframes pulse-buy {0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}50%{box-shadow:0 0 0 20px rgba(0,255,136,0)}}
+    @keyframes pulse-sell{0%,100%{box-shadow:0 0 0 0 rgba(255,51,102,.5)}50%{box-shadow:0 0 0 20px rgba(255,51,102,0)}}
+    @keyframes pulse-wait{0%,100%{box-shadow:0 0 0 0 rgba(255,170,0,.5)} 50%{box-shadow:0 0 0 20px rgba(255,170,0,0)}}
+    @keyframes spin   {to{transform:rotate(360deg)}}
+    @keyframes fadein {from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes glow   {0%,100%{opacity:.5}50%{opacity:1}}
+
+    /* Applied via className — FIX for the className bug */
+    .fadein{animation:fadein .4s ease both}
+    .glow  {animation:glow 2s infinite}
+    .spin  {animation:spin 1s linear infinite}
+
+    #toast{
+      position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+      background:#1e2a45;border:1px solid #00e5ff55;color:#c8d8f0;
+      padding:10px 18px;border-radius:12px;font-size:11px;
+      display:none;z-index:999;text-align:center;max-width:290px;
+      cursor:pointer;font-family:inherit
+    }
+  </style>
+</head>
+<body>
+<div id="app" style="max-width:480px;margin:0 auto;padding:8px 10px 28px"></div>
+<div id="toast"></div>
+<script>
+"use strict";
+
+// ═══════════════════════════════════════════════════════════
+// THEME COLORS
+// ═══════════════════════════════════════════════════════════
+var SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+var MONO = "'SF Mono','Fira Code',SFMono-Regular,Consolas,monospace";
+var C = {
+  bg:"#0a0e1a", panel:"#0f1525", border:"#1e2a45",
+  accent:"#00e5ff", buy:"#00ff88", sell:"#ff3366",
+  wait:"#ffaa00", text:"#c8d8f0", muted:"#7090b8"
+};
+
+var LIMIT = 300; // 300 h1 candles needed for EMA200
+
+// ═══════════════════════════════════════════════════════════
+// DOM HELPERS
+// ═══════════════════════════════════════════════════════════
+function el(tag, opts, children) {
+  var d = document.createElement(tag);
+  opts = opts || {};
+  // FIX: handle className separately from CSS style properties
+  if (opts.className) { d.className = opts.className; }
+  var styleObj = {};
+  Object.keys(opts).forEach(function(k) {
+    if (k === "className") return;
+    styleObj[k] = opts[k];
+  });
+  Object.assign(d.style, styleObj);
+  (children || []).forEach(function(c) {
+    if (c == null) return;
+    d.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  });
+  return d;
+}
+function div(opts, children) { return el("div", opts, children); }
+function span(opts, text) { return el("span", opts, [text]); }
+
+function svgNS(tag, attrs) {
+  var e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  Object.keys(attrs).forEach(function(k) { e.setAttribute(k, attrs[k]); });
+  return e;
+}
+function svgRoot(attrs, children) {
+  var s = svgNS("svg", attrs);
+  (children || []).forEach(function(c) { if (c) s.appendChild(c); });
+  return s;
+}
+
+// ═══════════════════════════════════════════════════════════
+// XHR — compatible with all browsers (no AbortSignal.timeout)
+// ═══════════════════════════════════════════════════════════
+function xhrGet(url, timeoutMs) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    var settled = false;
+    var timer = setTimeout(function() {
+      if (!settled) { settled = true; xhr.abort(); reject(new Error("timeout")); }
+    }, timeoutMs || 10000);
+
+    xhr.onload = function() {
+      if (settled) return; settled = true; clearTimeout(timer);
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try { resolve(JSON.parse(xhr.responseText)); }
+        catch(e) { reject(new Error("bad JSON")); }
+      } else {
+        reject(new Error("HTTP " + xhr.status));
+      }
+    };
+    xhr.onerror  = function() { if (!settled) { settled=true; clearTimeout(timer); reject(new Error("network error")); }};
+    xhr.onabort  = function() { if (!settled) { settled=true; clearTimeout(timer); reject(new Error("aborted")); }};
+    xhr.open("GET", url, true);
+    xhr.send();
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// DATA SOURCES
+// ═══════════════════════════════════════════════════════════
+var SOURCES = [
+  {
+    name: "Binance",
+    fetch: function() {
+      return xhrGet("https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1h&limit=" + LIMIT)
+        .then(function(d) {
+          return d.map(function(k) {
+            return { t:new Date(+k[0]), o:+k[1], h:+k[2], l:+k[3], c:+k[4], v:+k[5] };
+          });
+        });
+    }
+  },
+  {
+    name: "Kraken",
+    fetch: function() {
+      return xhrGet("https://api.kraken.com/0/public/OHLC?pair=ETHUSD&interval=60")
+        .then(function(d) {
+          var rows = null;
+          var res = d.result || {};
+          Object.keys(res).forEach(function(k) { if (Array.isArray(res[k])) rows = res[k]; });
+          if (!rows || !rows.length) throw new Error("no rows");
+          return rows.slice(-LIMIT).map(function(k) {
+            return { t:new Date(+k[0]*1000), o:+k[1], h:+k[2], l:+k[3], c:+k[4], v:+k[6] };
+          });
+        });
+    }
+  },
+  {
+    name: "Coinbase",
+    fetch: function() {
+      var end   = Math.floor(Date.now() / 1000);
+      var start = end - LIMIT * 3600;
+      return xhrGet("https://api.exchange.coinbase.com/products/ETH-USD/candles?granularity=3600&start=" + start + "&end=" + end)
+        .then(function(d) {
+          return d.slice().reverse().map(function(k) {
+            return { t:new Date(+k[0]*1000), o:+k[3], h:+k[2], l:+k[1], c:+k[4], v:+k[5] };
+          });
+        });
+    }
+  },
+  {
+    name: "Proxy→Binance",
+    fetch: function() {
+      var target = encodeURIComponent("https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1h&limit=" + LIMIT);
+      return xhrGet("https://api.allorigins.win/raw?url=" + target)
+        .then(function(d) {
+          return d.map(function(k) {
+            return { t:new Date(+k[0]), o:+k[1], h:+k[2], l:+k[3], c:+k[4], v:+k[5] };
+          });
+        });
+    }
+  }
+];
+
+function fetchCandles() {
+  var errors = [];
+  function tryIdx(i) {
+    if (i >= SOURCES.length) return Promise.reject(new Error("Semua sumber gagal: " + errors.join(" | ")));
+    var src = SOURCES[i];
+    return src.fetch()
+      .then(function(candles) {
+        if (!candles || candles.length < 50) throw new Error("data tidak cukup (" + (candles ? candles.length : 0) + ")");
+        console.log("[ETH] OK from", src.name, "—", candles.length, "candles");
+        return { candles: candles, source: src.name };
+      })
+      .catch(function(e) {
+        console.warn("[ETH]", src.name, "failed:", e.message);
+        errors.push(src.name + ": " + e.message);
+        return tryIdx(i + 1);
+      });
+  }
+  return tryIdx(0);
+}
+
+// ═══════════════════════════════════════════════════════════
+// INDICATOR CALCULATIONS
+// ═══════════════════════════════════════════════════════════
+
+// EMA — result[i] aligns with arr[period-1+i]
+function calcEMA(arr, period) {
+  if (arr.length < period) return [];
+  var k = 2 / (period + 1);
+  var sum = 0;
+  for (var i = 0; i < period; i++) sum += arr[i];
+  var ema = sum / period;
+  var out = [ema];
+  for (var j = period; j < arr.length; j++) {
+    ema = arr[j] * k + ema * (1 - k);
+    out.push(ema);
+  }
+  return out;
+}
+
+// RSI with Wilder smoothing — optimal period for H1 = 14
+function calcRSI(closes, period) {
+  period = period || 14;
+  if (closes.length < period + 1) return [];
+  var gains = [], losses = [];
+  for (var i = 1; i < closes.length; i++) {
+    var d = closes[i] - closes[i - 1];
+    gains.push(d > 0 ? d : 0);
+    losses.push(d < 0 ? -d : 0);
+  }
+  var ag = 0, al = 0;
+  for (var j = 0; j < period; j++) { ag += gains[j]; al += losses[j]; }
+  ag /= period; al /= period;
+  var rsis = [];
+  for (var k = period; k < gains.length; k++) {
+    ag = (ag * (period - 1) + gains[k]) / period;
+    al = (al * (period - 1) + losses[k]) / period;
+    rsis.push(al === 0 ? 100 : 100 - 100 / (1 + ag / al));
+  }
+  return rsis;
+}
+
+// MACD (12, 26, 9) — standard optimal for all timeframes
+function calcMACD(closes) {
+  var ema12 = calcEMA(closes, 12); // starts at closes[11]
+  var ema26 = calcEMA(closes, 26); // starts at closes[25]
+  // Align: ema12[i+14] and ema26[i] both represent closes[25+i]
+  var macdLine = [];
+  for (var i = 0; i < ema26.length; i++) macdLine.push(ema12[i + 14] - ema26[i]);
+  var signalLine = calcEMA(macdLine, 9);
+  // histogram[j] = macdLine[j+8] - signalLine[j]
+  var histogram = [];
+  for (var j = 0; j < signalLine.length; j++) histogram.push(macdLine[j + 8] - signalLine[j]);
+  return { macdLine: macdLine, signalLine: signalLine, histogram: histogram };
+}
+
+function last(arr) { return arr[arr.length - 1]; }
+function prev(arr) { return arr[arr.length - 2]; }
+
+// ── Signal Generation ─────────────────────────────────────
+function calcSignal(candles) {
+  var closes = candles.map(function(c) { return c.c; });
+  var price = last(closes);
+
+  var ema20arr  = calcEMA(closes, 20);
+  var ema50arr  = calcEMA(closes, 50);
+  var ema200arr = calcEMA(closes, 200);
+  var ema20   = last(ema20arr);
+  var ema50   = last(ema50arr);
+  var ema200  = last(ema200arr);
+
+  var rsiArr = calcRSI(closes, 14);
+  var rsi    = last(rsiArr);
+
+  var macdData  = calcMACD(closes);
+  var macdVal   = last(macdData.macdLine);
+  var sigVal    = last(macdData.signalLine);
+  var histVal   = last(macdData.histogram);
+  var prevHist  = prev(macdData.histogram);
+
+  // ── Scoring: 7 conditions ─────────────────────────────
+  var bull = 0, bear = 0;
+
+  // EMA (3 pts)
+  if (price > ema20)  bull++; else bear++;
+  if (price > ema50)  bull++; else bear++;
+  if (price > ema200) bull++; else bear++;
+
+  // RSI (2 pts) — oversold/overbought worth double
+  if      (rsi < 30) bull += 2;
+  else if (rsi > 70) bear += 2;
+  else if (rsi < 50) bull++;
+  else               bear++;
+
+  // MACD line vs signal line (1 pt)
+  if (macdVal > sigVal) bull++; else bear++;
+
+  // Histogram momentum: is it growing or shrinking? (1 pt)
+  if (histVal > prevHist) bull++; else bear++;
+
+  var signal = bull >= 5 ? "BUY" : bear >= 5 ? "SELL" : "WAIT";
+
+  // ── Trend direction based on EMA alignment ────────────
+  var trend;
+  if      (ema20 > ema50 && ema50 > ema200) trend = { label:"UPTREND",   icon:"▲▲", color:"#00ff88", desc:"EMA20 > EMA50 > EMA200" };
+  else if (ema20 < ema50 && ema50 < ema200) trend = { label:"DOWNTREND", icon:"▼▼", color:"#ff3366", desc:"EMA20 < EMA50 < EMA200" };
+  else if (ema20 > ema50 && ema50 < ema200) trend = { label:"RECOVERY",  icon:"▲",  color:"#ffaa00", desc:"EMA20 rising, still below EMA200" };
+  else if (ema20 < ema50 && ema50 > ema200) trend = { label:"DISTRIBUTION",icon:"▼",  color:"#ffaa00", desc:"EMA20 falling, still above EMA200" };
+  else                                       trend = { label:"SIDEWAYS",  icon:"◆",  color:"#4a6080", desc:"EMA alignment unclear" };
+
+  return {
+    signal: signal, bull: bull, bear: bear, total: 7,
+    price: price,
+    ema20: ema20, ema50: ema50, ema200: ema200,
+    rsi: rsi,
+    macd: macdVal, macdSignal: sigVal,
+    histogram: histVal, prevHistogram: prevHist,
+    trend: trend
+  };
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHART — SVG candlestick, last 60 candles
+// ═══════════════════════════════════════════════════════════
+function buildChart(allCandles) {
+  var data   = allCandles.slice(-60);
+  var closes = allCandles.map(function(c) { return c.c; });
+
+  var W=450, H=185, PL=58, PR=8, PT=10, PB=24;
+  var cW = W-PL-PR, cH = H-PT-PB;
+
+  var highs = data.map(function(c){return c.h;});
+  var lows  = data.map(function(c){return c.l;});
+  var minP  = Math.min.apply(null, lows);
+  var maxP  = Math.max.apply(null, highs);
+  var pR    = maxP - minP || 1;
+  var n     = data.length;
+  var gap   = cW / n;
+  var barW  = Math.max(2, gap - 1.5);
+
+  function toX(i) { return PL + i*gap + gap/2; }
+  function toY(p) { return PT + cH - ((p - minP) / pR) * cH; }
+  function fmt(p) { return p>=1000 ? "$"+(p/1000).toFixed(1)+"k" : "$"+p.toFixed(0); }
+  function fmtT(d){ return ("0"+d.getHours()).slice(-2)+":00"; }
+
+  var maxVol = Math.max.apply(null, data.map(function(c){return c.v;}));
+  var gridPs = [0,1,2,3,4].map(function(i){return minP+(pR/4)*i;});
+  var els    = [];
+
+  // Grid lines + price labels
+  gridPs.forEach(function(p, i) {
+    els.push(svgNS("line",{x1:PL,y1:toY(p),x2:W-PR,y2:toY(p),stroke:C.border,"stroke-width":.5,"stroke-dasharray":"3,4"}));
+    var t = svgNS("text",{x:PL-4,y:toY(p)+3,"text-anchor":"end",fill:C.muted,"font-size":8,"font-family":"monospace"});
+    t.textContent = fmt(p);
+    els.push(t);
+  });
+
+  // EMA lines — FIX: use moveto on gaps to avoid broken lines at viewport edges
+  var ema20full = calcEMA(closes, 20);
+  var ema50full = calcEMA(closes, 50);
+  var ema20sl   = ema20full.slice(-60);
+  var ema50sl   = ema50full.slice(-60);
+
+  function emaPath(arr, color) {
+    var d = "";
+    arr.forEach(function(v, i) {
+      var x = toX(i), y = toY(v);
+      var inView = y >= PT && y <= PT+cH;
+      if (!inView) {
+        // FIX: don't just skip — move pen so line doesn't draw across gap
+        d += ""; // effectively breaks path segment
+      } else {
+        // FIX: use M if previous point was out of view or this is first point
+        var prevY = i > 0 ? toY(arr[i-1]) : null;
+        var prevInView = prevY !== null && prevY >= PT && prevY <= PT+cH;
+        d += (i === 0 || !prevInView ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+      }
+    });
+    if (!d.trim()) return null;
+    return svgNS("path",{d:d.trim(),fill:"none",stroke:color,"stroke-width":1.2,opacity:.75});
+  }
+
+  var p20 = emaPath(ema20sl, C.accent);
+  var p50 = emaPath(ema50sl, C.wait);
+  if (p20) els.push(p20);
+  if (p50) els.push(p50);
+
+  // Volume bars (behind candles)
+  data.forEach(function(c, i) {
+    var vH = maxVol > 0 ? (c.v / maxVol) * 26 : 0;
+    els.push(svgNS("rect",{
+      x:toX(i)-barW/2, y:PT+cH-vH, width:barW, height:vH,
+      fill: c.c >= c.o ? C.buy+"18" : C.sell+"18"
+    }));
+  });
+
+  // Candlesticks
+  data.forEach(function(c, i) {
+    var bull  = c.c >= c.o;
+    var color = bull ? C.buy : C.sell;
+    var bTop  = toY(Math.max(c.o, c.c));
+    var bBot  = toY(Math.min(c.o, c.c));
+    var bH    = Math.max(1, bBot - bTop);
+    var cx    = toX(i);
+    var g     = document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.appendChild(svgNS("line",{x1:cx,y1:toY(c.h),x2:cx,y2:toY(c.l),stroke:color,"stroke-width":1,opacity:.85}));
+    g.appendChild(svgNS("rect",{
+      x:cx-barW/2, y:bTop, width:barW, height:bH,
+      fill: bull ? color : "transparent",
+      stroke: color, "stroke-width": bull ? 0 : 1, opacity:.9
+    }));
+    els.push(g);
+  });
+
+  // Latest price dashed line
+  var latest   = data[data.length-1];
+  var prev2    = data[data.length-2];
+  var chColor  = latest.c >= prev2.c ? C.buy : C.sell;
+  els.push(svgNS("line",{x1:PL,y1:toY(latest.c),x2:W-PR,y2:toY(latest.c),stroke:chColor,"stroke-width":.8,"stroke-dasharray":"4,3",opacity:.6}));
+
+  // Time labels
+  [0, 15, 30, 45, 59].forEach(function(i) {
+    if (i >= data.length) return;
+    var t = svgNS("text",{x:toX(i),y:H-5,"text-anchor":"middle",fill:C.muted,"font-size":8,"font-family":"monospace"});
+    t.textContent = fmtT(data[i].t);
+    els.push(t);
+  });
+
+  // EMA legend
+  [["EMA20",C.accent,PL+2],["EMA50",C.wait,PL+44]].forEach(function(leg) {
+    var t = svgNS("text",{x:leg[2],y:PT+10,fill:leg[1],"font-size":7,"font-family":"monospace"});
+    t.textContent = leg[0];
+    els.push(t);
+  });
+
+  var chart = svgRoot({width:"100%",height:H,viewBox:"0 0 "+W+" "+H,style:"display:block;max-width:100%;touch-action:pan-y",preserveAspectRatio:"xMidYMid meet"}, els);
+
+  // Touch: find candle by x position
+  var hoveredCandle = null;
+  function showTooltip(clientX, svgEl) {
+    var rect = svgEl.getBoundingClientRect();
+    var relX = (clientX - rect.left) / rect.width * W;
+    var idx = Math.floor((relX - PL) / gap);
+    if (idx < 0) idx = 0;
+    if (idx >= data.length) idx = data.length - 1;
+    var c = data[idx];
+    if (c === hoveredCandle) return;
+    hoveredCandle = c;
+    // Update tooltip div
+    var tt = document.getElementById("chart-tooltip");
+    if (!tt) return;
+    var bull = c.c >= c.o;
+    var col  = bull ? C.buy : C.sell;
+    tt.innerHTML =
+      "<span style='color:"+C.muted+";font-size:9px'>"+
+        ("0"+c.t.getHours()).slice(-2)+":00"+
+      "</span>&nbsp;&nbsp;"+
+      "O<span style='color:"+col+"'>"+fmt(c.o)+"</span> "+
+      "H<span style='color:"+C.buy+"'>"+fmt(c.h)+"</span> "+
+      "L<span style='color:"+C.sell+"'>"+fmt(c.l)+"</span> "+
+      "C<span style='color:"+col+"'>"+fmt(c.c)+"</span>";
+    tt.style.opacity = "1";
+  }
+  function hideTooltip() {
+    hoveredCandle = null;
+    var tt = document.getElementById("chart-tooltip");
+    if (tt) tt.style.opacity = "0";
+  }
+  chart.addEventListener("mousemove",  function(e){ showTooltip(e.clientX, chart); });
+  chart.addEventListener("mouseleave", function()  { hideTooltip(); });
+  chart.addEventListener("touchstart", function(e){ e.preventDefault(); showTooltip(e.touches[0].clientX, chart); }, {passive:false});
+  chart.addEventListener("touchmove",  function(e){ e.preventDefault(); showTooltip(e.touches[0].clientX, chart); }, {passive:false});
+  chart.addEventListener("touchend",   function()  { setTimeout(hideTooltip, 1200); });
+  return chart;
+}
+
+// ═══════════════════════════════════════════════════════════
+// UI COMPONENTS
+// ═══════════════════════════════════════════════════════════
+function fmtPrice(p) {
+  return "$" + p.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function fmtSigned(n, dec) {
+  return (n >= 0 ? "+" : "") + n.toFixed(dec || 2);
+}
+
+function buildLoading() {
+  return div({background:C.panel,border:"1px solid "+C.border,borderRadius:14,padding:"28px 20px",textAlign:"center",marginBottom:12},[
+    div({color:C.accent,fontSize:11,letterSpacing:3,marginBottom:10,className:"glow"},["CALCULATING SIGNAL..."]),
+    div({color:C.muted,fontSize:9,lineHeight:1.8,marginBottom:14},["Binance → Kraken → Coinbase → Proxy"]),
+    div({width:32,height:32,border:"3px solid "+C.border,borderTop:"3px solid "+C.accent,borderRadius:"50%",className:"spin",margin:"0 auto"})
+  ]);
+}
+
+function buildError(msg, onRetry) {
+  var btn = el("button",{background:C.accent+"22",border:"1px solid "+C.accent,color:C.accent,padding:"8px 22px",borderRadius:8,cursor:"pointer",fontSize:11,fontFamily:"inherit",marginTop:12},["↻ Retry"]);
+  btn.onclick = onRetry;
+  return div({background:C.panel,border:"1px solid "+C.sell+"55",borderRadius:14,padding:"20px",textAlign:"center",marginBottom:12},[
+    div({color:C.sell,fontSize:13,marginBottom:8},["⚠ Failed to load data"]),
+    div({color:C.muted,fontSize:9,lineHeight:1.7},[msg || "All sources failed."]),
+    btn
+  ]);
+}
+
+function buildChartCard(candles, source, updated) {
+  var latest  = candles[candles.length-1];
+  var prev2   = candles[candles.length-2];
+  var change  = ((latest.c - prev2.c) / prev2.c) * 100;
+  var chColor = change >= 0 ? C.buy : C.sell;
+  var isOpen  = false; // default: minimized
+
+  var card = div({background:C.panel,border:"1px solid "+C.border,borderRadius:12,marginBottom:8,className:"fadein",overflow:"hidden"});
+
+  // ── Compact always-visible header row ─────────────────
+  var hdr = div({
+    display:"flex",justifyContent:"space-between",alignItems:"center",
+    padding:"9px 12px",cursor:"pointer",userSelect:"none",gap:"8px"
+  });
+
+  // Left: symbol + timeframe
+  var leftGrp = div({display:"flex",alignItems:"center",gap:"6px",flexShrink:0});
+  var dot = div({width:6,height:6,borderRadius:"50%",background:C.buy,boxShadow:"0 0 5px "+C.buy,className:"glow",flexShrink:0});
+  leftGrp.appendChild(dot);
+  leftGrp.appendChild(span({fontSize:12,fontWeight:700,color:"#fff",letterSpacing:.5},"ETH/USDT"));
+  leftGrp.appendChild(span({fontSize:8,color:C.accent,border:"1px solid "+C.accent+"55",borderRadius:3,padding:"1px 4px",fontWeight:600},"1H"));
+  hdr.appendChild(leftGrp);
+
+  // Center: price + change on ONE line
+  var midGrp = div({display:"flex",alignItems:"center",gap:"5px",flex:1,justifyContent:"center"});
+  midGrp.appendChild(span({fontSize:15,fontWeight:700,color:"#fff",fontFamily:MONO,letterSpacing:-.3},fmtPrice(latest.c)));
+  midGrp.appendChild(span({fontSize:10,fontWeight:600,color:chColor},(change>=0?"▲":"▼")+Math.abs(change).toFixed(2)+"%"));
+  hdr.appendChild(midGrp);
+
+  // Right: countdown + chevron
+  var rightGrp = div({display:"flex",alignItems:"center",gap:"5px",flexShrink:0});
+  var cntEl = span({fontSize:9,color:C.muted});
+  cntEl.id = "refresh-status";
+  rightGrp.appendChild(cntEl);
+  var chevron = span({fontSize:10,color:C.muted,transition:"transform .25s",display:"inline-block",lineHeight:1},"▼");
+  rightGrp.appendChild(chevron);
+  hdr.appendChild(rightGrp);
+
+  card.appendChild(hdr);
+
+  // ── Collapsible chart body ─────────────────────────────
+  var body = div({overflow:"hidden",maxHeight:"0px",transition:"max-height .3s ease",borderTop:"0px solid "+C.border});
+
+  var chartWrap = div({position:"relative",padding:"0 6px 6px"});
+  chartWrap.appendChild(buildChart(candles));
+  var ttEl = div({
+    position:"absolute", top:"4px", left:"64px",
+    fontFamily:MONO, fontSize:9, color:C.text,
+    background:C.panel+"ee", padding:"2px 7px", borderRadius:4,
+    border:"1px solid "+C.border, pointerEvents:"none",
+    opacity:0, transition:"opacity .15s", whiteSpace:"nowrap"
+  });
+  ttEl.id = "chart-tooltip";
+  chartWrap.appendChild(ttEl);
+  body.appendChild(chartWrap);
+
+  var srcEl = div({fontSize:8,color:C.muted,textAlign:"right",padding:"0 8px 6px"},
+    ["via "+source+" · "+updated.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"})]);
+  body.appendChild(srcEl);
+  card.appendChild(body);
+
+  // ── Toggle logic ───────────────────────────────────────
+  hdr.onclick = function() {
+    isOpen = !isOpen;
+    body.style.maxHeight  = isOpen ? "260px" : "0px";
+    body.style.borderTopWidth = isOpen ? "1px" : "0px";
+    chevron.style.transform   = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+  };
+
+  return card;
+}
+
+function buildSignalCard(ind) {
+  var sig    = ind.signal;
+  var sc     = sig==="BUY" ? C.buy : sig==="SELL" ? C.sell : C.wait;
+  var sanim  = sig==="BUY" ? "pulse-buy" : sig==="SELL" ? "pulse-sell" : "pulse-wait";
+  var icon   = sig==="BUY" ? "▲" : sig==="SELL" ? "▼" : "◆";
+  var score  = sig==="BUY" ? ind.bull : sig==="SELL" ? ind.bear : Math.max(ind.bull,ind.bear);
+  var pct    = Math.round(score / ind.total * 100);
+
+  var card = div({background:sc+"12",border:"2px solid "+sc,borderRadius:12,padding:"14px 14px",textAlign:"center",marginBottom:8,boxShadow:"0 4px 20px "+sc+"22",animation:sanim+" 2s infinite"});
+
+  var sigRow = div({display:"flex",alignItems:"center",justifyContent:"center",gap:"10px"});
+  sigRow.appendChild(span({fontSize:18,color:sc,lineHeight:1},icon));
+  sigRow.appendChild(span({fontSize:30,fontWeight:700,color:sc,letterSpacing:2,textShadow:"0 0 20px "+sc+", 0 0 6px "+sc+"88"},sig));
+  card.appendChild(sigRow);
+
+  // Strength bar
+  var barWrap = div({marginTop:10,padding:"0 4px"});
+  barWrap.appendChild(div({display:"flex",justifyContent:"space-between",marginBottom:3},[
+    span({fontSize:9,color:C.muted,letterSpacing:.5},"SIGNAL STRENGTH"),
+    span({fontSize:10,fontWeight:700,color:sc},pct+"%")
+  ]));
+  var barTrack = div({height:5,background:C.border,borderRadius:3,overflow:"hidden",position:"relative"});
+  var barFill  = div({position:"absolute",top:0,left:0,height:"100%",background:sc,borderRadius:3,boxShadow:"0 0 6px "+sc,transition:"width .5s ease"});
+  barFill.style.width = pct+"%";
+  barTrack.appendChild(barFill);
+  barWrap.appendChild(barTrack);
+  card.appendChild(barWrap);
+
+  // ── Trend direction badge ─────────────────────────────
+  var tr = ind.trend;
+  var trendWrap = div({marginTop:10,paddingTop:10,borderTop:"1px solid "+C.border+"44",textAlign:"center"});
+  var tBadge = div({display:"inline-flex",alignItems:"center",gap:"5px",padding:"3px 12px",borderRadius:"20px",background:tr.color+"18",border:"1px solid "+tr.color+"55",marginBottom:4});
+  tBadge.appendChild(span({fontSize:10,color:tr.color},tr.icon));
+  tBadge.appendChild(span({fontSize:10,fontWeight:700,color:tr.color},tr.label));
+  trendWrap.appendChild(tBadge);
+  trendWrap.appendChild(div({fontSize:9,color:C.muted,lineHeight:1.4},[tr.desc]));
+  card.appendChild(trendWrap);
+
+  return card;
+}
+
+function indRow(label, value, statusText, statusColor) {
+  var row = div({display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 0",borderBottom:"1px solid "+C.border+"33"});
+  var lft = div({});
+  lft.appendChild(div({fontSize:10,color:C.muted},[label]));
+  lft.appendChild(div({fontSize:11,color:C.text,fontFamily:MONO,marginTop:1},[value]));
+  row.appendChild(lft);
+  row.appendChild(span({fontSize:11,fontWeight:700,color:statusColor,flexShrink:0,marginLeft:10},statusText));
+  return row;
+}
+
+function sectionLabel(txt) {
+  return div({
+    fontSize:9, color:C.muted, letterSpacing:.5,
+    textTransform:"uppercase", padding:"10px 0 4px",
+    borderTop:"1px solid "+C.border+"55", marginTop:2
+  },[txt]);
+}
+
+function buildIndicatorCard(ind) {
+  var card = div({background:C.panel,border:"1px solid "+C.border,borderRadius:12,padding:"10px 14px",marginBottom:8,className:"fadein"});
+
+  // ── EMA ──────────────────────────────────────────────
+  card.appendChild(div({fontSize:9,color:C.muted,letterSpacing:.5,paddingBottom:4},["EMA (20 · 50 · 200)"]));
+  [
+    ["EMA 20",  ind.ema20,  ind.price > ind.ema20],
+    ["EMA 50",  ind.ema50,  ind.price > ind.ema50],
+    ["EMA 200", ind.ema200, ind.price > ind.ema200]
+  ].forEach(function(r) {
+    var bull = r[2];
+    card.appendChild(indRow(r[0], fmtPrice(r[1]), bull?"▲ ABOVE":"▼ BELOW", bull?C.buy:C.sell));
+  });
+
+  // ── RSI ──────────────────────────────────────────────
+  card.appendChild(sectionLabel("RSI (14)"));
+  var rsi      = ind.rsi;
+  var rsiColor = rsi<30?C.buy : rsi>70?C.sell : rsi<50?C.buy : C.sell;
+  var rsiLabel = rsi<30?"OVERSOLD ▲" : rsi>70?"OVERBOUGHT ▼" : rsi<50?"BULLISH":"BEARISH";
+
+  var rsiWrap = div({padding:"4px 0 6px",borderBottom:"1px solid "+C.border+"44"});
+  rsiWrap.appendChild(div({display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6},[
+    span({fontSize:13,fontWeight:700,color:C.text,fontFamily:MONO},rsi.toFixed(1)),
+    span({fontSize:11,fontWeight:700,color:rsiColor},rsiLabel)
+  ]));
+  var rsiBar = div({height:5,borderRadius:3,overflow:"hidden",
+    background:"linear-gradient(to right,"+C.buy+" 0%,"+C.buy+" 30%,"+C.wait+" 30%,"+C.wait+" 70%,"+C.sell+" 70%,"+C.sell+" 100%)",
+    opacity:.4,position:"relative"});
+  var rsiMark = div({position:"absolute",top:-1,left:rsi+"%",width:3,height:7,background:rsiColor,
+    borderRadius:2,boxShadow:"0 0 5px "+rsiColor,marginLeft:"-1.5px"});
+  rsiMark.style.opacity = "1";
+  var rsiBarWrap = div({position:"relative",height:5,borderRadius:3,overflow:"visible"});
+  rsiBarWrap.appendChild(rsiBar);
+  rsiBarWrap.appendChild(rsiMark);
+  rsiWrap.appendChild(rsiBarWrap);
+  rsiWrap.appendChild(div({display:"flex",justifyContent:"space-between",marginTop:4},[
+    span({color:C.buy,fontSize:9},"30"),
+    span({color:C.muted,fontSize:9},"50"),
+    span({color:C.sell,fontSize:9},"70")
+  ]));
+  card.appendChild(rsiWrap);
+
+  // ── MACD ─────────────────────────────────────────────
+  card.appendChild(sectionLabel("MACD  (12 · 26 · 9)"));
+  var macdBull = ind.macd > ind.macdSignal;
+  var histBull = ind.histogram > ind.prevHistogram;
+  card.appendChild(indRow(
+    "MACD / Signal",
+    fmtSigned(ind.macd)+" / "+fmtSigned(ind.macdSignal),
+    macdBull?"▲ BULLISH":"▼ BEARISH",
+    macdBull?C.buy:C.sell
+  ));
+  card.appendChild(indRow(
+    "Histogram",
+    fmtSigned(ind.histogram,2)+" → "+fmtSigned(ind.prevHistogram,2),
+    histBull?"▲ RISING":"▼ FALLING",
+    histBull?C.buy:C.sell
+  ));
+
+  return card;
+}
+
+function buildDisclaimer() {
+  return div({padding:"10px 4px",marginBottom:4},[
+    el("p",{color:C.muted,fontSize:10,lineHeight:1.6,textAlign:"center"},["⚠ For educational purposes only. Always apply risk management before entry."])
+  ]);
+}
+
+// ═══════════════════════════════════════════════════════════
+// MAIN APP CONTROLLER
+// ═══════════════════════════════════════════════════════════
+var app         = document.getElementById("app");
+var refreshTimer    = null;
+var countdownTimer  = null;
+var nextRefreshAt   = null;  // timestamp ms of next refresh
+var lastData        = null;  // cached last successful data
+
+function render(state, data) {
+  app.innerHTML = "";
+
+  if (state === "loading") {
+    app.appendChild(buildLoading());
+    return;
+  }
+  if (state === "error") {
+    app.appendChild(buildError(data, loadData));
+    return;
+  }
+
+  // state === "ok"
+  app.appendChild(buildChartCard(data.candles, data.source, data.updated));
+  app.appendChild(buildSignalCard(data.ind));
+  app.appendChild(buildIndicatorCard(data.ind));
+  app.appendChild(buildDisclaimer());
+}
+
+// ── Countdown ticker ─────────────────────────────────────
+function startCountdown() {
+  clearInterval(countdownTimer);
+  nextRefreshAt = Date.now() + 60000;
+  countdownTimer = setInterval(function() {
+    var el = document.getElementById("refresh-status");
+    if (!el) return;
+    var secs = Math.max(0, Math.round((nextRefreshAt - Date.now()) / 1000));
+    el.textContent = secs > 0 ? "Refresh " + secs + "s" : "Updating...";
+    el.style.color  = secs <= 10 ? C.wait : C.muted;
+  }, 1000);
+}
+
+function setUpdatingBadge(msg) {
+  var el = document.getElementById("refresh-status");
+  if (el) { el.textContent = msg || "Updating..."; el.style.color = C.wait; }
+}
+
+// ── Data loader ───────────────────────────────────────────
+function loadData() {
+  if (!lastData) {
+    // First load — show full loading screen
+    render("loading");
+  } else {
+    // Background refresh — keep existing UI, just show badge
+    setUpdatingBadge("Updating...");
+  }
+
+  fetchCandles()
+    .then(function(result) {
+      var ind = calcSignal(result.candles);
+      lastData = { candles:result.candles, ind:ind, source:result.source, updated:new Date() };
+      render("ok", lastData);
+      startCountdown();
+    })
+    .catch(function(e) {
+      if (!lastData) {
+        render("error", e.message);
+      } else {
+        // Keep old data, just update badge with error hint
+        setUpdatingBadge("Gagal — coba lagi...");
+        setTimeout(startCountdown, 3000);
+      }
+    });
+}
+
+// Start
+loadData();
+clearInterval(refreshTimer);
+refreshTimer = setInterval(loadData, 60 * 1000);
+
+// ═══════════════════════════════════════════════════════════
+// SERVICE WORKER
+// ═══════════════════════════════════════════════════════════
+// Inject manifest
+(function() {
+  var mB64 = "ewogICJuYW1lIjogIkVUSCBTaWduYWwgQW5hbHl6ZXIiLAogICJzaG9ydF9uYW1lIjogIkVUSCBTaWduYWwiLAogICJkZXNjcmlwdGlvbiI6ICJTaW55YWwgdHJhZGluZyBFVEgvVVNEVCBvdG9tYXRpcyDigJQgRU1BICsgUlNJICsgTUFDRCBwYWRhIHRpbWVmcmFtZSAxIGphbSIsCiAgInN0YXJ0X3VybCI6ICIuL2luZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsCiAgInRoZW1lX2NvbG9yIjogIiMwYTBlMWEiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwYTBlMWEiLAogICJpY29ucyI6IFsKICAgIHsgInNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFJYVVsRVFWUjRuTzJkTFhvY1J4Q0dTM21NRnRqY2dpWVJERExMQlhLREhDSThKL0FUNmtQa0JybEFXRkNnUWd4MUFCTlJCemp6ZUxPYS9lbVo3cTc2Zmw1bWE3M2JYZlc5VXozU3JueDNlUDMyU3hnanluZlpDekFtRXd0Z3BMRUFSaG9MWUtTeEFFWWFDMkNrc1FCR0dndGdwTEVBUmhvTFlLUjVsYjBBWnA0Zm43bzh6K0hodnN2em1KZmMrYjFBKytnVjhxMVlqbjFZZ0VheUEzOE5DOUdHQmJoQzljQmZ3MEpjeGdLc1VPM3NYbTA5VEZpQS85Z2FzdXhRb2E2N0N2SUN0QWFvZW5EWTlqTWFTUUZhUW9JZUVLVzlia0ZLZ0Z2RHdCb0U5ZjJ2SVNHQUcvOS9YSTl2VUF0d1M2TVZtbndKOVJwUkNxRGUxQzJvMW94T2dHdU5aR3hpVDlUcVJ5T0FXdU5HbzFKUENnRXVOWXVsVVZtdzF4WmFBUGJtVklLMTFyQWZpR0Z0U0ZVdTFSVDVEWU9RRStCY3dSMzhPVERWSDBvQVgvWHJ3TklMR0FHWXJqcE1vUGNGNGg0QXZjak1uT3NCeW4xQmVRRWMvdm9nUzFENkNMUldRQWUvTm1nOUt6c0IwQXBwdnJMV284cVRvS1FBRGo4MlNCS1VFMEF0L00rUFQ1K3kxekFDRkFsS0NhQWFma3VRUnhrQlZNTi83czhzVkplZ2hBRHE0Yi8yOStoVWxpQmRBSWUvN2V1b1ZKVWdWUUNIZjkvajBLZ29RWm9BRG4vZng2TlFUWUlVQVJ6K3NmK3VPcFVrU0w4SGlIRDRSLzc3cWxUcCtYUUJzczk4TStrVlhsWUpUc25JeGxRQmxJNCt2VVBMS0VHRm85QTBBUnordXMrYlNiWUVhZmNBRG4vTjU4OGdNd3RUQkZBNTk4OEtKNk1FcDh6S3pIQUJWSTQrczBQSkprSFdVV2o2RWNqaHgzL2RVV1JrWTZnQUNrZWY3QkJtdi81b1JtZG9tQUFLUjU4cTRhdXlqaDdNUGdwTk93STUvR09wdHA0OXpNektFQUhZano1VncxWjFYVDBZbGFrcEU0RHA2bDg5Wk5YWGR5dXpNdE5kQU9hclAwcTRVTmJaeW9oc0RaOEFMRmQvdEZDaHJYZU5HZG5wS2dEcjFSODFUS2pydmtUdmpBMmRBQXhYZi9RUW9hOS9kSWE2Q2NCNDlVY1B6d0xMUGhaNlptM1lCRUMvK2hPR0JuWS9JN1AwYXRnekE0TWNGbVNlUC8veTEvbXYvbmI2MkJlUE9MejUrTDcxTmJ0TWdOT1JoSHoxWnc0Lzg5NjJVdUpEOFZWUUNJakNIbHZZTFFETHphOVNNSlQyZW8zdUV3RHgrS01ZQ01VOXJ5Ri9CRklPZ3ZMZUYzWUpnSDd6NndDNEJySVRRTDN4eHlqWFFsSUE1WWFmUTdVbW13VkFQZjZvTnZvV0ZHc2pOUUVVRzl5S1dvMWtCRkJyN0I2VWFpVWhnRkpEZTZGU3MwMENJSjMvVlJvNUFvWGFVVThBaFFhT2hyMkd0QUt3TjI0bXpMV2tGSUM1WVZtdzFyUlpnT3JuZjlaR1ZhQjZiYmU4TTVscUFsUnZFQU5zTmFZUmdLMHhsV0dxTllVQVRBMUJnYVhtOEFLd05BSVJodHBEQzhEUUFIVFFld0FyQUhyaG1VRHVSWk1BVmI0RmlsendGL3o5Nlovc0pmU2dTazlhdnhVSzk0dXhxaFM2bVV0QlAvZTFIOTU5UDJvNUkzaCtmUHAwZUxoL2w3Mk9GcUFFZ0FoL3p5czZvQmhvRXNBSVVDNzhtVWVYNG1JZ1NRQWpRRlpCbjMvLzg0K00xOTNFR1RFT1AvLzQwK3lsb0FBandHaWdndDdJMnQ0c3hWZmtCR0FPZWd2bjZxQW1CcTBBRHZvMjFNU0FGOEJCbndPckdEQUNPT2cxUVJjRFJnQ1VnaG9zWU44TFpFd1BMSUNSeGdJWWFXRHVBWjRmbjM3TlhvTzVuY1BEL1lmc05kd0N6QVJBS2FqQjZoV01BQkZZaFZVRnJVZFFBa1RnRlZnSnhONDBDWEQ2Q2JDcy95SVZzZERzVk9sSjY2Y1U0U2JBUXBXQ0creGV3QW9RZ1YxNEZ0QjdBQzFBQkg0RGtHR29QYndBRVJ5TlFJT2w1aFFDUlBBMEJBR21XdE1JRU1IVm1LcXcxYmhaZ0NyZkNqMEhXNE1xVWIyMlczNVJHOVVFV0tqZUtFUllhMG9wUUFSdnd6SmdyaVd0QUJIY2pac0ZldzAzQ1ZEOVB1QVk5Z2FPUktGMjFCTmdRYUdSdlZHcG1ZUUFFVG9ON1lGU3JXUUVpTkJxN0ZiVWFyUlpBS1Q3Z0dQVUd0eUNZbTJrSnNDQ1lxT3ZvVm9UU1FFaWRCdStobkl0ZGdtQWVneGFVRzc4Z25vTlpDZkFnbklBbFBlKzBGMEF0Q2tRb1JrRXhUMnZzVnVBclA4cXRUZEtnVkRhNnpYa2owREhLQVJEWVk4dGRCRUEvV2I0R09hQU1POXRLekMvRzNRbWg0ZjdELzVkcFBNNXZQbjQvdHpYVGkrcXZZN2V3NDVBeUZNZ2d1OXFpYnlma1ZucUpnREx6ZkF4eUtFNWhtVWZDejJ6TnZRbUdIMEtST0NIQjMzOW96UFVWUURHS1JDQkd5TFVkVitpZDhhR2Z4dVVZUXBFNElVSmJiMXJ6TWhPZHdGWXAwQUVUcWhRMXRuS2lHeE4rVUVZeXhTSXFCK3U2dXU3bFZtWkdTSUE4eFNJcUJ1eXF1dnF3YWhNVFhzckJOTVVpS2dYdG1ycjJjUE1yQXdUWU0xWVN6Q0dLdXZvd1ZwR1JwNG9oazRBOXFOUVJINzRzbDkvTktNek5QM2RvR3hUSUNJdmhHemh6OGpHY0FFVWprSVI4OE9vRVA0Wko0Z3BFMERoS0JReEw1UnM0VjlqVm1iU1BoRERPQVVpeG9lVE1meVpXWmdtZ01wUktHSmNTRlhDUC9QRU1IVUNXSUk2ejFlQjdQQkhKQnlCVk80SEl2cUZsakg4YTJSa284U0g0bG1uUU1UKzhMS0d2MHJQVXdSUU9ncEZiQSt4VXZpelRnWnBFOEFTOUgwOENwWENINUY4QkxJRSt4NkhSclh3UnhTNEI3QUViVjlIcFdMNEl3b0lFR0VKcnYwOU9sWERIMUZFZ0FoTDRQRG5VRWFBQ0YwSkhQNDg3ZzZ2MzM3SlhzUXBDSVV6bDBIcFlha0pzS0EyQ2RoQUNYOUVVUUVpTEFFcVNPR1BLSG9FT3VaYzZDc1hWUkhVUHBXZEFBdm5DdWhwVUFmVThFY0FDQkJoQ1NxREhQNElnQ1BRTVpjQ2oxSndGbGg2QVNYQUF2cFZCeDJtK2tNS0VNRnpCVUtDc2VZUTl3QnJYQ3E0N3czNnd4aitDT0FKY0F4cmN5ckFYbHNLQVNLdVgvVVptalVUbFhyU0NMQ2cwcmhScU5XUFRvQ0kyKzRCMkJxNUY5V2FVUXF3b05yVUZ0UnJSQzNBd3EzZkZXSnU5REd1eHpja0JGaFFiN3o2L3RlUUVtQ2g1ZWNFNkdGUTJ1c1dKQVU0cHZXSFp0VkR3cmFmMGNnTHNMRDFwOGZaQVVKZGR4VXN3QXE5M2tyUksyVFYxc09FQmJnQyt2dUtIUHJMV0lCR3Fndmh3TGRoQVhhU0xZUUR2dzhMTUJDZjNldGpBWXcwc0IrSU1hWUhGc0JJWXdHTU5CYkFTR01CakRRV3dFaGpBWXcwRnNCSVl3R01OQmJBU1BNdlRHNkZjN2MyaEFzQUFBQUFTVVZPUks1Q1lJST0iLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIgfSwKICAgIHsgInNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFZZDBsRVFWUjRuTzNkUFhva1IzWUYwQ1Mvc1dCUVBtblNFVTFaOHJTQjJZRVdJWDlXTUw0V29SMW9BL0preVd3NU5Ic0JjdHFsakNaSUFGMG9aR1ZtUkx5ZmMxenBHeVlxSTk2OUdWbEFmL2YwdzQrL2JRQkFLOSt2dmdBQVlENEZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9DRUZBQUFhVWdBQW9LRy9yTDRBNEp3dm56NHYrZTgrL2ZMVGt2OHVjSTN2bm43NDhiZlZGd0c4dGlyVVIxRVdJQjRGQUJhcEZ2SkhLUWV3aGdJQUF3bjVjNVFER0VjQmdJc0krem1VQXJpR0FnQUhDZndZRkFJNFJnR0FIWVI5TGtvQmZFd0JnQnNFZmkwS0FYeExBWURmQ2YwZWxBSDRTZ0dnTFlIUHRpa0U5S1VBMElyUTV4NWxnRTRVQU1vVCtoeWhERkNkQWtCSm5VSi9WVkQ1akNFM0JZQXlxZ1ZTbGRCeFh5QW1CWURVTW9lTElQbktQWVExRkFCU3loUWFRdUlZOXhqR1VnQklJME1nQ0lLeHJBRzRqZ0pBZUpHSHZtRy9sclVCeHlrQWhCVnh1QnZxc1ZrenNKOENRQ2pSQnJqaG5adjFCTzlUQUFnaHlxQTJvR3V6enVCUENnQkxSUmpJaG5GUDFoN2RLUUFzc1hyNEdyeThaRDNTa1FMQVZDc0hyU0hMSHRZb1hTZ0FUTEZxcUJxb25HSGRVcGtDd0ZBckJxamh5UWpXTXRVb0FBd3hlMWdhbE14a2ZWT0JBc0NsREVZNnNkN0pUQUhnRWdZaG5Wbi9aS1FBY01yTXdXZm9rWUU5UVJZS0FJZk5HblNHSEJuWkgwU25BUEF3Z3czMnMxK0lTZ0ZndHhtRHpCQ2pNbnVJU0JRQWRoazl1QXd0T3JHZmlFQUI0QzZEQ3NheHYxaEpBZUJkSTRlVHdRUi9zdGRZUVFIZ0c0WVJyR0h2TVpNQ3dCOGNSOEo2OWlHektBQnMyK2JKQTZLeEp4bE5BV0RZb0RGazREejdrMUVVZ01ZTUZzakRmdVZxQ2tCVEk0YUpRUUxqMmJ0Y1JRRm94bE1FNUdjZmN3VUZvQkZQRGxDTFBjMFpDa0FUVnc4S1F3TGlzTDg1UWdFb3poTUM5R0N2OHlnRm9EQlBCZENQZmM5ZTM2KytBTVl3QktDbnEvZnFqSC9DbURXY0FCUWorSUZuNWdIM09BRW94R1lIWG5JYXdEMU9BSXE0Y21NS2ZxakhqT0F0SndBRjJOakFSNjdjMjA0Q2FuQUNrSmdqZitCUjVnYlBGSUNrUFBVRFo1Z2hlQVdRa0kwTG5PV1ZBQXBBTXNJZnVJb1MwSnRYQUlsY3RjRUVQL0NXK2RLUEU0QWtiRTVncEt0bWc1T0FQSndBQk9mSUg1akp6T2xEQVFqTVV6K3dpdmxUbjFjQVFkbDh3RXBlQ2RTbkFBUWsvSUVJbElEYUZJQmdoRDhRaVJKUWx3SVFpUEFISWxJQ2F2SWx3Q0N1MkJpQ0h4ak5yS3JEQ1VBQU5oU1F4Uld6eGtsQURBckFZc0lmeUVZSnFFRUJXRWo0QTFrcEFma3BBSXNJZnlMNDh1bnpyNnV2Z2J5VWdOd1VnQVdFUHhFOGg3OFN3QmxLUUY0S3dHVENud2plaHI0U3dCbEtRRTRLd0VUQ253amVDM3NsZ0RPVWdId1VnRW1FUHhGOEZQSktBR2NvQWJrb0FCTUlmeUxZRys1S0FHY29BWGtvQUlNSmZ5SjROTlNWQU01UUFuSlFBSUlUL3B4MU5NeVZBTTR3dStKVEFBWTYyMkJ0SU00NkcrSktBR2VjbldGT0FjWlNBQVlSL3F4MlZYZ3JBWnloQk1TbEFBd2cvRm50NnRCV0FqaERDWWhKQWJpWThHZTFVV0d0QkhDR0VoQ1BBbkFoNGM5cW8wTmFDZUFNSlNBV0JlQWl3cC9WWm9XekVzQVpTa0FjQ2tBQXdwK3pab2V5RXNBWlpsNE1Dc0FGempSU0c0R3pWb1d4RXNBWloyYWZVNEJyS0FBbkNYOVdXaDNDcS8vNzVLWUVyS1VBbkNEOFdTbEsrRWE1RG5KU0F0WlJBQTZ5OEZncFd1aEd1eDc2TUl1UFV3QVc4UFRQR1ZIRE51cDFFWitadUlZQ2NJQ2pmMWFKSHJMUnI0KzR2QXFZVHdGNGtQQm5sU3pobXVVNmlVY0ptRXNCZUlEd1o1VnNvWnJ0ZW9sRENaaEhBWmhBK0hORzFqRE5ldDJzWjJiT29RRHNwRm15UXZZUXpYNzk1R05XNzZjQTdPRG9ueFdxaEdlVm40TzV2QW9ZVHdINGdQQm5oV3FoV2UzbllRNGxZQ3dGWUJEaHoxRlZ3N0xxejhWWVp1azRDc0FkR2lTelZRL0o2ajhmc1pqaDl5a0E3M0QwejJ4ZHdySEx6OGwxdkFvWVF3RzRtUERuaUc2aDJPM241VHl6OVhvS3dBMUhHNk1GeWhGZHc3RHJ6ODF4UjJlc1U0RGJGSUEzTEJSbTZoNkMzWDkrNWpIYnY2VUF2T0M5UHpNSnY2OThEanpDOXdHdW93QmNRUGp6S0tIM21zK0RSNWk1MTFBQWZ1ZTlQN01JdTl0OExqekM5d0hPVXdCZ0lpRjNuODhINWxFQU5rLy96Q0hjOXZFNXNaZFRnSFBhRndEaHp3eEM3VEUrTC9aU0FvNXJYd0JnTkdGMmpNOE54bXBkQUR6OU01b1FPOGZueHg1T0FZNXBXd0NFUDZNSnIydjRITmxEQ1hoYzJ3SUFJd210YS9rODRYb3RDNENuZjBZU1ZtUDRYUG1JVTRESHRDd0FSd2gvOWhCU1kvbDgrWWhadlYrN0F0QzE2VEdlY0pyRDU4d0lIYk9oVlFGdzlNOG9RbWt1bnpmM2VCV3dUNnNDQUNNSW96Vjg3bkJPbXdMZzZaOFJoTkJhUG4vZTR4VGdZMjBLd0JIQ24zdUVUd3p1QSs4eHcrOXJVUUE2TlRybUVEcXh1QjljcVV0bXRDZ0FSMmlPdkVmWXhPUytjSXRaL3I3eUJhQkxrMk1PSVJPYis4TlZPbVJIK1FKd2hNYklMY0lsQi9lSnQ4ejAyMG9YZ0E0TmpqbUVTaTd1RjFlb25pR2xDOEFSbWlKdkNaT2MzRGRlTXR1L1ZiWUFWRzl1ekNGRWNuUC9PS3R5bHBRdEFFZG9pTHdrUEdwd0gzbG14cjlXc2dBY2FXd1dCaThKalZyY1Q1NGRtZlZWVHdGS0ZnQTRRMWpVNUw3Q2ErVUtnS2QvemhBU3RibS9iSnRUZ0dmbENnQWNKUng2Y0ovaHExSUZ3Tk0vUndtRlh0eHZuQUlVS3dCd2hERG95WDJudXpJRndOTS9Sd2lCM3R6LzNycWZBcFFwQVBBb3c1OXRzdzdvcTBRQjhQVFBvd3g5WHJJZSt1cDhDbENpQU1BakRIdHVzUzdvUmdHZ0ZVT2VlNndQT2tsZkFCei9zNWZoemg3V1NUOWRYd09rTHdDd2g2SE9JNndYT3ZqdTZZY2ZmMXQ5RVVkNSttY1B3NXlqbm43NTZlZlYxOEErWC83djMvNTc5VFhzOGZRUC8vN1BxNi9obVJNQXl2cnk2Zk92d3A4enJCOHFTMXNBUFAxemo4SE5WYXdscWtwYkFPQTlCalpYczZhb1NBR2dGSU9hVWF3dHFrbFpBQnovYzRzQnpXaldHSldrTEFEd2xzSE1MTllhVmFRckFKNytlY3RBWmpacmpnclNGUUI0eVNCbUZXdVA3TW9YQUUvL2RSbkFyR1lOa2xtcUFsRGhieTl6RFlPWEtLeEZza3BWQUdEYkRGemlzU2JKcUhRQmNQeGZqMEZMVk5ZbTJhUXBBSTcvTVdDSnpob2xrelFGZ040TVZyS3dWc21pYkFGdy9GK0hnVW8yMWl3WnBDZ0Fqdi83TWtqSnl0b2x1aFFGZ0o0TVVMS3pob21zWkFGdy9KK2Z3VWtWMWpKUmhTOEFqdi83TVRDcHhwb21vdkFGZ0Y0TVNxcXl0b21tWEFGdy9KK1hBVWwxMWppUmhDNEFqdi83TUJqcHdsb25pdEFGZ0I0TVJMcXg1b21nVkFGdy9KK1BRVWhYMWo2cmxTb0E1R0lBMHAwOXdFcGhDNEQzLzdVWmZQQ1Z2Y0FxWVF2QW94ei81Mkhnd1d2MkJDdVVLUURrWU5EQmJmWUdzNFVzQUk3L2F6TGc0RDU3aEpsQ0ZnRHFNZGhnSDN1RldVb1VBTy8vWXpQUTRESDJERE9VS0FERVpaREJNZllPbzRVckFONy8xMkdBd1RuMkVDT0ZLd0RVWUhEQk5ld2xSa2xmQUx6L2o4ZkFnbXZaVTR5UXZnQVFpMEVGWTloYlhFMEI0RElHRkl4bGozR2xVQVhBRndEek1waGdEbnVOcTRRcUFJL3kvajhHQXdubXN1ZTRRdW9Dd0hvR0VheGg3M0dXQXNCaEJoQ3NaUTl5UnBnQzRQMS9MZ1lQeEdBdjVoSXA2OElVZ0VkNS83K09nUU94MkpNY2tiWUFzSVpCQXpIWm16eEtBV0EzQXdaaXMwZDVoQUxBTGdZTDVHQ3ZzbGVJQWhEcFN4Rjh5MENCWE96WjJLSmtYb2dDOENoZkFKekhJSUdjN0YwK2tySUFNSWNCQXJuWnc5eWpBSENUd1FFMTJNdThSd0hnR3dZRzFHSlBjNHNDd0NzR0JkUmtiL09XQXNBZkRBaW96UjducGVVRjRORmZoL0FiQUdNWUROQ0R2UjVEaEY4RlhGNEFXTTlBZ0Y3c2ViWk5BV2pQSUlDZTdIMFVnTVlNQU9qTkRPaE5BV2pLeGdlMnpTem9UQUZveUlZSFhqSVRlbElBbXJIUmdWdk1objZXRm9BSXZ3YlJpUTBPM0dOR3pMVTZBMU9kQVBnYkFNZloyTUFlWmtVZnFRb0F4OWpRd0NQTWpCNFVnT0pzWk9BSXM2TStCYUF3RzVnUC9jK3YvN3Y2RW9qTERLbnRMNnN2Z0RGc1hQN3dVY2kvOTMvL3A1Ly9jY1Rsa011WFQ1OS9mZnJscDU5WFh3ZlhVd0FLRXY1TlhmMDBmKzkvVHpsb1JRbW9TUUVvUnZnWEYrWEkzcWxCTzBwQVBRcEFJY0sva0NoQi95aW5CcVVwQWJVb0FFVUkvNFN5aHZ4UlRnMUtVQUxxVUFBS0VQN0JkUXY2UnprMVNFY0pxR0ZaQVhqMFR5RDZLNEMzQ2Y4Z2hQd1lUZzNDVWdLdThlWFQ1Mlg1NWdRZ09SdHdyaS8vOFYvL3Vmb2EyTzRXcnFkLy9aZS96cndVeUVvQmdEZUVmRzd2M1QvRkFGNVRBR2hMMFBkeTczNHJCM1NrQUZDYWtHY1Bwd1owcEFDUW5wQm5GS2NHVktZQWtJYWdKeEtuQm1TbkFCQ0trQ2M3cHdaa29RQ3doS0NuSTZjR1JLSUFNSXlRaDMyY0dyQ0NBc0JwZ2g3R2NXckFLQW9BdXdoNWlNV3BBV2NwQUx3aTZDRS9wd2Jzb1FBMEpPU2hKNmNHdktRQUZDYm9nYjJjR3ZTakFDUW41SUdSbkJyVXBRQWtad01DY01UM3F5OEFBSmhQQVFDQWhoUUFBR2hJQVFDQWhoUUFBR2hJQVFDQWhoUUFBR2hJQVFDQWhoUUFBR2hJQVFDQWhoUUFBR2hJQVFDQWh2eGpRTWw5K2ZUNWI2dXZBZWpwNlplZi9yNzZHamh1MlFuQTB5OC9QZlQvLytYVDUwRlhrcHNOQ0t4ZzlsemowU3k4a2xjQUJkaUl3RXhtVGcwS1FCRTJKRENEV1ZPSEFsQ0lqUW1NWk1iVW9nQVVZNE1DSTVndDlTZ0FCZG1vd0pYTWxKb1VnS0pzV09BS1prbGRDa0JoTmk1d2hobFNtd0pRbkEwTUhHRjIxS2NBTkdBakE0OHdNM3BJVlFEOE5jRGpiR2hnRDdPaWo2VUZZT1dmUU96SXhnYnVNU1BtV3AyQnFVNEFPTThHQjI0eEcvcFJBQnF5MFlHWHpJU2VGSUNtYkhoZzI4eUN6aFNBeG14ODZNME02RTBCYU00QWdKN3NmUlFBREFKb3hwNW4yd0lVZ0VkL0RjTGZBaGpEUUlBZTdQVVlWdjhLNExZRktBREVZVEJBYmZZNEx5a0F2R0pBUUUzMk5tOHBBSHpEb0lCYTdHbHVVUUM0eWNDQUd1eGwzcU1BOEM2REEzS3poN2tuWlFId213RHpHQ0NRazczTFIwSVVnQWkvRHNIN0RCTEl4WjZOTFVybWhTZ0F4R2VnUUE3Mktuc3BBT3htc0VCczlpaVBVQUI0aUFFRE1kbWJQQ3B0QWZCRndIVU1Hb2pGbnVTSU1BVWd5cGNpMk1mQWdSanN4VndpWlYyWUFrQStCZytzWlE5eWhnTEFLUVlRckdIdmNWYnFBdUI3QURFWVJEQ1hQY2NWUWhXQVNPOUdlSXlCQkhQWWExd2xWQUVnTjRNSnhyTEh1SklDd0tVTUtCakQzdUpxNlF1QTd3SEVZMURCdGV3cFJraGZBSWpKd0lKcjJFdU1FcTRBK0NKZ0hRWVhuR01QTVZLNEFrQXRCaGdjWSs4d1dva0M0SHNBc1JsazhCaDdoaGxLRkFEaU05QmdIM3VGV1VJV0FOOERxTWxnZy92c0VXWUtXUUNveTRDRDIrd05aaXRUQUh3UElBK0REbDZ6SjFnaGJBSHdHcUEyQXcrK3NoZFlKV3dCb0Q2RGorN3NBVllxVlFDOEJzakhBS1FyYTUvVlNoVUFjaklJNmNhYUo0TFFCY0QzQVBvd0VPbkNXaWVLMEFYZ0NLOEI4aklZcWM0YUo1SnlCWURjREVpcXNyYUpKbndCOEJxZ0g0T1NhcXhwSWdwZkFJN3dHaUEvQTVNcXJHV2lLbGtBcU1IZ0pEdHJtTWhTRkFDdkFmb3lRTW5LMmlXNkZBWGdDSzhCNmpCSXljYWFKWU95QllCYURGU3lzRmJKSWswQjhCb0FnNVhvckZFeVNWTUFqdkFhb0I0RGxxaXNUYklwWFFDb3lhQWxHbXVTakZJVkFLOEJlR2JnRW9XMVNGYXBDc0FSWGdQVVpmQ3ltalZJWnVVTEFMVVp3S3hpN1pGZHVnSnc1RFdBVTREYURHSm1zK2FvSUYwQmdGc01aR2F4MXFnaVpRRndDc0F0QmpPaldXTlVrcklBd0hzTWFFYXh0cWhHQWFBY2c1cXJXVk5VbExZQWVBM0FQUVkyVjdHV3FDcHRBWUNQUFAzeTA5OE5iODZ3ZnFqc3U2Y2Zmdnh0OVVXY2NlU3AzbDhVN09mTHA4OS9XMzBONUNMOGUrbVlKVTRBYU1FdzV4SFdDeDJrTHdDK0M4QmVoanA3V0NmOWRIejYzN1lDQlFBZVliaHpqL1ZCSndvQTdSankzR0pkMEUySkF1QTFBSTh5N0huSmV1aXI2L0gvdGhVcEFIQ0VvYysyV1FmMFZhWUFPQVhnQ01PL04vZS90ODVQLzl0V3FBREFVVUtnSi9lZDdrb1ZBS2NBSENVTWVuRy82ZjcwdjIzRkNnQ2NJUlI2Y0ovaHEzSUZ3Q2tBWndpSDJ0eGZ0czNULzdOeUJRRE9FaEkxdWEvd1dza0M0QlNBczRSRkxlNG56eno5LzZsa0FUaEtDZUFsb1ZHRCs4Z3pNLzYxc2dXZ2FtTmpMdUdSbS92SFdaV3pwR3dCT0VwRDVDMGhrcFA3eGt0bSs3ZEtGNERLelkyNWhFa3U3aGRYcUo0aHBRdkFVWm9pdHdpVkhOd24zakxUYnl0ZkFLbzNPT1lTTHJHNVAxeWxRM2FVTHdCSGFZeThSOGpFNUw1d2kxbit2aFlGb0VPVFl5NWhFNHY3d1pXNlpFYUxBbkNVNXNnOVFpY0c5NEgzbU9IM3RTa0FSeHVkQmNROXdtY3Ruei92T1RxN3V6ejliMXVqQWdDakNLRTFmTzV3VHFzQzRCU0FVWVRSWEQ1djd2SDB2MCtyQXJCdC9XNHc4d2lsT1h6T2pOQXhHOW9WZ0tPY0FyQ0hjQnJMNTh0SHpPcjlXaFlBcndJWVNVaU40WFBsSTQ3K0g5T3lBTUJvd3VwYVBrKzRYdHNDNEJTQTBZVFdOWHlPN09IcC8zRnRDOEMyS1FHTUo3ek84Zm14aC9BL3BuVUJnQm1FMkRFK054aXJmUUZ3Q3NBTXd1d3hQaS8yOHZSL1hQc0NzRzFLQUhNSXRYMThUdXdsL005UkFHQWk0WGFmendmbVVRQis1eFNBV1lUY2JUNFhIdUhwL3p3RjRBSktBSThTZHEvNVBIaUVtWHNOQmVDRk04M1FndVJSUXU4cm53T1BPRE5yUGYyL3BnQzhZWUV3VS9mdzYvN3pNNC9aL2kwRjRBYmZCMkNtcmlIWTllZm1PTy85cjZVQVhFd0o0SWh1WWRqdDUrVThzL1Y2Q3NBN2ZCK0EyYnFFWXBlZmsrdDQ3eitHQW5DSGhjTnMxY094K3M5SExHYjRmUXJBSUU0Qk9LcHFTRmI5dVJqTExCMUhBZmlBVndHc1VDMHNxLzA4ek9Ib2Z5d0ZZQWNsZ0JXcWhHYVZuNE81aFA5NENzQk9GaFFyWkEvUDdOZFBQbWIxZmdyQUJFNEJPQ05yaUdhOWJ0WXpNK2RRQUI3Z1ZRQ3JaQXZUYk5kTEhJNys1MUVBSHFRRXNFcVdVTTF5bmNRai9PZFNBQTVRQWxnbGVyaEd2ejdpRXY3ektRQUxLQUdjRVRWa28xNFg4Wm1KYXlnQUIybWNyQlF0YktOZEQzMll4Y2NwQUNkNEZjQktVVUkzeW5XUWs2UC9kUlNBazVRQVZsb2R2cXYvKytRbS9OZFNBQzZnQkxEU3FoQVcvcHdoL05kVEFBSlFBamhyZGhnTGY4NHc4MkpRQUM1eXRwSGFFSncxSzVTRlAyZWNuWFdlL3ErakFGeElDV0MxMGVFcy9EbEQrTWVpQUZ4TUNXQzFVU0V0L0RsRCtNZWpBQXlnQkxEYTFXRXQvRGxEK01la0FBeWlCTERhVmFFdC9EbEQrTWVsQUF5a0JMRGEyZkFXL3B3aC9HTlRBSUpUQWpqcmFJZ0xmODR3dStKVEFBYTdvc0hhU0p6MWFKZ0xmODY0WW1aNStoOVBBWmhBQ1NDQ3ZhRXUvRGxEK09laEFFeWlCQkRCUitFdS9EbEQrT2VpQUV5a0JCREJleUV2L0RsRCtPZWpBRXltQkJEQjI3QVgvcHdoL0hOU0FCWlFBb2pnT2ZTRlAyY0kvN3krZS9yaHg5OVdYMFJYTmc2UW1SbVdteE9BaFp3RUFGa0ovL3dVZ01XVUFDQWI0VitEQWhDQUVnQmtJZnpyOEIyQVFLNEtjWnNMdUpyNVZJOFRnRUN1MmhoT0E0QXJDZithRklCZ2xBQWdFdUZmbHdJUWtCSUFSQ0Q4YTFNQWdsSUNnSldFZjMyK0JCamNsUUZ1SXdJZk1YUDZVQUNTME1hQjBjeVpYcndDU01JckFXQWs0ZCtQRTRCa0hNOEJWekpUK25JQ2tNeVZHOHhwQVBRbS9IdFRBQkpTQW9DemhEOWVBU1IyZFhqYnhGQ2Z1Y0V6QmFBQVRSN1l3NnpnSmE4QUN2QktBUGlJOE9jdEp3Q0ZPTm9EM2pJWGVJOFRnRUt1M3BoT0F5QTM0Yzg5VGdDS3N2R2hML3VmUFp3QUZPVTBBSG9TL3V6bEJLQzRFY0Z0SUVBODlqcVBVZ0NhOEZRQWRkbmZIS0VBTk9JSkFXcXhwemxEQVdobTFMdDhRd1Btc1krNWdnTFFsQ2NIeU1uZTVTb0tRR09lSWlBUCs1V3JLUUFZTEJDWS9ja29DZ0RidG8zOVBYK0RCaDVuVHpLYUFzQWZSdit4SDBNSFBtWWZNb3NDd0RjOGVjQWE5aDR6S1FDOHl6Q0NPZXcxVmxBQXVNdHhKSXhqZjdHU0FzQXVCaFZjeDM0aUFnV0EzV2I4aTRBR0Y1WFpRMFNpQVBDd1dmODBzRUZHQmZZTFVTa0FIR2F3d2Z2c0Q2SlRBRGhsMXBEYk5vT09IT3dKc2xBQXVNVE1vYmR0QmgreFdQOWtwQUJ3S1lPUVRxeDNNbE1BR01KZ3BETHJtd29VQUlhYVBTaTN6YkJrREd1WmFoUUFwbGd4UExmTkFPVWM2NWJLRkFDbVdqVlF0ODFRWlI5cmxDNFVBSlpZT1dTM3phRGxOZXVSamhRQWxsbzllTGZOOE8zSzJxTTdCWUFRSWd6amJUT1FxN1BPNEU4S0FLRkVHZERQRE9yY3JDZDRud0pBV05HRzk3WVo0TkZaTTdDZkFrQjRFWWY2TThOOUxXc0RqbE1BU0NQeXNIOW02STlsRGNCMUZBQlN5aEFFendUQ01lNHhqS1VBa0ZxbWtIaExhSHpsSHNJYUNnQmxaQTZTVzZxRWkvc0NNU2tBbEZRdGRPNVpGVWcrWThoTkFhQzhUa0hGZFlRKzFTa0F0S0lNY0kvUXB4TUZnTGFVQWJaTjZOT1hBZ0MvVXdoNkVQandsUUlBTnlnRHRRaDkrSllDQURzb0JMa0lmUGlZQWdBSEtRVXhDSHM0UmdHQWl5Z0Vjd2g4dUlZQ0FBTXBCZWNJZXhoSEFZQkZsSU92aER5c29RQkFRTlhLZ1pDSGVCUUFTRzVWV1JEcWtKc0NBQUFOZmIvNkFnQ0ErUlFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FoaFFBQUdoSUFRQ0FodjRmcjh2SVhQZVpTV3dBQUFBQVNVVk9SSzVDWUlJPSIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIiB9CiAgXQp9Cg==";
+  var mJson = atob(mB64);
+  var blob = new Blob([mJson], {type:"application/manifest+json"});
+  var link = document.createElement("link");
+  link.rel = "manifest";
+  link.href = URL.createObjectURL(blob);
+  document.head.appendChild(link);
+})();
+
+// Inline Service Worker via blob
+if ("serviceWorker" in navigator) {
+  var swB64 = "Y29uc3QgQ0FDSEVfTkFNRSA9ICJldGgtc2lnbmFsLXYxIjsKCi8vIEFwcCBzaGVsbCDigJQgY2FjaGVkIG9uIGluc3RhbGwKY29uc3QgU0hFTEwgPSBbCiAgIi4vaW5kZXguaHRtbCIsCiAgIi4vbWFuaWZlc3QuanNvbiIsCiAgIi4vaWNvbnMvaWNvbi0xOTIucG5nIiwKICAiLi9pY29ucy9pY29uLTUxMi5wbmciCl07CgovLyBBUEkgZG9tYWlucyDigJQgYWx3YXlzIG5ldHdvcmssIG5ldmVyIGNhY2hlCmNvbnN0IEFQSV9IT1NUUyA9IFsiYmluYW5jZS5jb20iLCAia3Jha2VuLmNvbSIsICJjb2luYmFzZS5jb20iLCAiYWxsb3JpZ2lucy53aW4iLCAiY29pbmdlY2tvLmNvbSJdOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCJpbnN0YWxsIiwgZnVuY3Rpb24oZSkgewogIGUud2FpdFVudGlsKAogICAgY2FjaGVzLm9wZW4oQ0FDSEVfTkFNRSkKICAgICAgLnRoZW4oZnVuY3Rpb24oYykgeyByZXR1cm4gYy5hZGRBbGwoU0hFTEwpOyB9KQogICAgICAudGhlbihmdW5jdGlvbigpIHsgcmV0dXJuIHNlbGYuc2tpcFdhaXRpbmcoKTsgfSkKICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcigiYWN0aXZhdGUiLCBmdW5jdGlvbihlKSB7CiAgZS53YWl0VW50aWwoCiAgICBjYWNoZXMua2V5cygpLnRoZW4oZnVuY3Rpb24oa2V5cykgewogICAgICByZXR1cm4gUHJvbWlzZS5hbGwoCiAgICAgICAga2V5cy5maWx0ZXIoZnVuY3Rpb24oaykgeyByZXR1cm4gayAhPT0gQ0FDSEVfTkFNRTsgfSkKICAgICAgICAgICAgLm1hcChmdW5jdGlvbihrKSB7IHJldHVybiBjYWNoZXMuZGVsZXRlKGspOyB9KQogICAgICApOwogICAgfSkudGhlbihmdW5jdGlvbigpIHsgcmV0dXJuIHNlbGYuY2xpZW50cy5jbGFpbSgpOyB9KQogICk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCJmZXRjaCIsIGZ1bmN0aW9uKGUpIHsKICB2YXIgdXJsID0gZS5yZXF1ZXN0LnVybDsKCiAgLy8gQVBJIGNhbGxzOiBuZXR3b3JrIG9ubHksIGRvbid0IGludGVyY2VwdAogIGZvciAodmFyIGkgPSAwOyBpIDwgQVBJX0hPU1RTLmxlbmd0aDsgaSsrKSB7CiAgICBpZiAodXJsLmluZGV4T2YoQVBJX0hPU1RTW2ldKSAhPT0gLTEpIHJldHVybjsKICB9CgogIC8vIEFwcCBzaGVsbDogY2FjaGUgZmlyc3QsIGZhbGxiYWNrIHRvIG5ldHdvcmsgYW5kIHVwZGF0ZSBjYWNoZQogIGUucmVzcG9uZFdpdGgoCiAgICBjYWNoZXMubWF0Y2goZS5yZXF1ZXN0KS50aGVuKGZ1bmN0aW9uKGNhY2hlZCkgewogICAgICB2YXIgbmV0d29ya0ZldGNoID0gZmV0Y2goZS5yZXF1ZXN0KS50aGVuKGZ1bmN0aW9uKHJlcykgewogICAgICAgIGlmIChyZXMgJiYgcmVzLnN0YXR1cyA9PT0gMjAwICYmIGUucmVxdWVzdC5tZXRob2QgPT09ICJHRVQiKSB7CiAgICAgICAgICB2YXIgY2xvbmUgPSByZXMuY2xvbmUoKTsKICAgICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFX05BTUUpLnRoZW4oZnVuY3Rpb24oYykgeyBjLnB1dChlLnJlcXVlc3QsIGNsb25lKTsgfSk7CiAgICAgICAgfQogICAgICAgIHJldHVybiByZXM7CiAgICAgIH0pOwogICAgICByZXR1cm4gY2FjaGVkIHx8IG5ldHdvcmtGZXRjaDsKICAgIH0pCiAgKTsKfSk7Cg==";
+  var swCode = atob(swB64);
+  var swBlob = new Blob([swCode], {type:"application/javascript"});
+  var swUrl  = URL.createObjectURL(swBlob);
+  navigator.serviceWorker.register(swUrl)
+    .then(function(r) { console.log("[SW] registered"); })
+    .catch(function(e) { console.warn("[SW] failed:", e); });
+}
+
+// ═══════════════════════════════════════════════════════════
+// INSTALL PROMPT
+// ═══════════════════════════════════════════════════════════
+var deferred = null;
+var toast    = document.getElementById("toast");
+
+window.addEventListener("beforeinstallprompt", function(e) {
+  e.preventDefault();
+  deferred = e;
+  toast.style.display = "block";
+  toast.innerHTML = '📱 <strong style="color:#00e5ff">Install App</strong> — Tap untuk pasang di homescreen';
+  toast.onclick = function() {
+    deferred.prompt();
+    deferred.userChoice.then(function() { toast.style.display="none"; deferred=null; });
+  };
+  setTimeout(function() { toast.style.display="none"; }, 7000);
+});
+
+window.addEventListener("appinstalled", function() {
+  toast.style.display = "block";
+  toast.innerHTML = "✅ Berhasil diinstall!";
+  setTimeout(function() { toast.style.display="none"; }, 3000);
+});
+</script>
+</body>
+</html>
